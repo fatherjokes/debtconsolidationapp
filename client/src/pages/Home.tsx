@@ -1,5 +1,6 @@
 import { Link } from "wouter";
 import { ArrowRight, Shield, Zap, BarChart3, ChevronRight } from "lucide-react";
+import { SCENARIO_CATEGORIES } from "@/data/scenarios";
 
 export default function Home() {
   return (
@@ -240,31 +241,97 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── Footer ───────────────────────────────────────────────────────── */}
-      <footer className="border-t border-black">
-        <div className="swiss-container py-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-            <div className="lg:col-span-6">
-              <div className="flex items-center gap-3 mb-4">
-                <span className="swiss-accent" />
-                <span className="font-black text-sm tracking-widest uppercase">DebtConsolidationApp</span>
-              </div>
-              <p className="text-xs text-gray-500 leading-relaxed max-w-md">
-                This tool provides educational information and AI-generated recommendations for informational purposes only. It does not constitute financial, legal, or credit counseling advice. Always consult a licensed financial professional before making debt relief decisions.
+      {/* ── Scenarios Section ──────────────────────────────────────────── */}
+      <section id="scenarios" className="border-t border-black">
+        <div className="swiss-container py-16">
+          <div className="flex items-center gap-3 mb-2">
+            <span className="swiss-accent" />
+            <span className="swiss-label">Educational Scenarios</span>
+          </div>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-0 mb-10">
+            <div className="lg:col-span-7 lg:border-r border-black lg:pr-16">
+              <h2 className="text-2xl font-black leading-tight">20 Real-World Debt Scenarios</h2>
+              <p className="text-gray-600 mt-2 text-sm leading-relaxed max-w-lg">
+                Explore detailed analyses of common financial situations — each with all five debt relief options ranked, credit impact assessments, and plain-language explanations.
               </p>
             </div>
-            <div className="lg:col-span-6 flex flex-col lg:items-end justify-between">
-              <div className="flex gap-6">
-                <Link href="/assessment" className="text-xs font-semibold tracking-widest uppercase text-gray-600 hover:text-black transition-colors">
-                  Assessment
-                </Link>
-                <a href="#how-it-works" className="text-xs font-semibold tracking-widest uppercase text-gray-600 hover:text-black transition-colors">
-                  How It Works
-                </a>
+            <div className="lg:col-span-5 lg:pl-16 flex items-center mt-6 lg:mt-0">
+              <Link href="/scenarios">
+                <button className="btn-swiss btn-swiss-outline flex items-center gap-2 text-xs">
+                  View All 20 Scenarios <ArrowRight size={14} />
+                </button>
+              </Link>
+            </div>
+          </div>
+
+          {/* Category grid */}
+          <div className="space-y-10">
+            {SCENARIO_CATEGORIES.map((cat) => (
+              <div key={cat.label}>
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="w-3 h-px bg-red-600" />
+                  <p className="text-xs font-bold uppercase tracking-widest text-gray-400">{cat.label}</p>
+                  <span className="flex-1 h-px bg-gray-100" />
+                </div>
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2">
+                  {cat.scenarios.map((s) => (
+                    <Link key={s.slug} href={`/scenarios/${s.slug}`}>
+                      <div className="border border-gray-200 px-3 py-2.5 hover:border-black hover:bg-gray-50 transition-all cursor-pointer group">
+                        <p className="text-xs font-semibold text-gray-700 group-hover:text-red-600 transition-colors leading-snug">
+                          {s.title}
+                        </p>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
               </div>
-              <p className="text-xs text-gray-400 mt-4">
-                © {new Date().getFullYear()} DebtConsolidationApp.com
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Footer ───────────────────────────────────────────────────────── */}
+      <footer className="border-t border-black bg-black text-white">
+        <div className="swiss-container py-12">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
+            {/* Brand */}
+            <div className="lg:col-span-3">
+              <div className="flex items-center gap-3 mb-4">
+                <span className="w-3 h-3 bg-red-600 flex-shrink-0" />
+                <span className="font-black text-sm tracking-widest uppercase">DebtConsolidationApp</span>
+              </div>
+              <p className="text-xs text-gray-400 leading-relaxed">
+                AI-powered debt relief recommendations. Educational purposes only — not financial advice.
               </p>
+            </div>
+
+            {/* Scenario links by category */}
+            {SCENARIO_CATEGORIES.map((cat) => (
+              <div key={cat.label} className="lg:col-span-2">
+                <p className="text-xs font-bold uppercase tracking-widest text-gray-500 mb-3">{cat.label}</p>
+                <ul className="space-y-1.5">
+                  {cat.scenarios.map((s) => (
+                    <li key={s.slug}>
+                      <Link href={`/scenarios/${s.slug}`}>
+                        <span className="text-xs text-gray-400 hover:text-white transition-colors cursor-pointer leading-snug block">
+                          {s.title}
+                        </span>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+
+          <div className="border-t border-gray-800 mt-10 pt-6 flex flex-col md:flex-row items-center justify-between gap-4">
+            <p className="text-xs text-gray-500">
+              © {new Date().getFullYear()} DebtConsolidationApp.com · Educational content only · Not financial advice
+            </p>
+            <div className="flex items-center gap-6 text-xs text-gray-500">
+              <Link href="/"><span className="hover:text-white cursor-pointer transition-colors">Home</span></Link>
+              <Link href="/assessment"><span className="hover:text-white cursor-pointer transition-colors">Assessment</span></Link>
+              <Link href="/scenarios"><span className="hover:text-white cursor-pointer transition-colors">Scenarios</span></Link>
             </div>
           </div>
         </div>

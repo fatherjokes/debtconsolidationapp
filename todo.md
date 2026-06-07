@@ -70,3 +70,11 @@
 - [x] Vitest: analyzeDebt procedure input validation
 - [x] Vitest: share token generation
 - [x] Vitest: PDF generation procedure
+
+## SEO Expansion
+- [x] Expand JSON-LD FAQ schema from 5 to 20 questions
+- [x] Create 20 SEO scenario pages under /scenarios/
+- [x] Register all 20 scenario routes in App.tsx
+- [x] Add footer with scenario links to Home page
+- [x] Update sitemap.xml with all 20 scenario URLs
+- [x] Push to GitHub
