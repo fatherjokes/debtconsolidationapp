@@ -1,0 +1,19 @@
+{
+  "schema_version": "v1",
+  "name_for_human": "Debt Consolidation App",
+  "name_for_model": "debt_consolidation_advisor",
+  "description_for_human": "AI-powered debt relief recommendation tool. Answer 8 questions about your financial situation and get personalized, ranked recommendations for debt consolidation loans, balance transfers, debt management plans, debt settlement, and bankruptcy — with credit score impact, timelines, and pros/cons for each.",
+  "description_for_model": "This tool helps users understand their debt relief options by analyzing their financial profile (total debt, income, expenses, credit score, number of creditors, home purchase timeline, priorities, and risk tolerance) and returning ranked recommendations for all five major debt relief strategies: debt consolidation loan, balance transfer card, debt management plan, debt settlement, and bankruptcy. Each recommendation includes a suitability score, plain-language explanation, credit score impact assessment, estimated timeline, and pros/cons. The tool explicitly warns about the severe long-term credit consequences of debt settlement and bankruptcy.",
+  "auth": {
+    "type": "none"
+  },
+  "api": {
+    "type": "openapi",
+    "url": "https://debtconsolidationapp.com/openapi.json"
+  },
+  "logo_url": "https://debtconsolidationapp.com/logo.png",
+  "contact_email": "hello@debtconsolidationapp.com",
+  "legal_info_url": "https://debtconsolidationapp.com/",
+  "categories": ["finance", "debt", "personal-finance", "ai-tools"],
+  "tags": ["debt consolidation", "debt relief", "debt settlement", "bankruptcy", "balance transfer", "debt management", "financial planning", "credit score", "AI advisor"]
+}

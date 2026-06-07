@@ -1,0 +1,40 @@
+# robots.txt — DebtConsolidationApp.com
+# Optimized for AI tool directories and standard search engine crawlers
+
+User-agent: *
+Allow: /
+Allow: /assessment
+Allow: /share/
+Disallow: /api/
+Disallow: /results/
+
+# Explicitly allow major AI crawlers and tool directory bots
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: YouBot
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Sitemap location
+Sitemap: https://debtconsolidationapp.com/sitemap.xml
