@@ -89,9 +89,15 @@
 - [x] Push updated scenarios and prompt to GitHub
 
 ## Settlement-Focused Scenario Expansion (10 new scenarios)
-- [ ] Add 10 new paycheck-to-paycheck / high-debt settlement candidate scenarios to scenarios.ts
-- [ ] Generate 10 new scenario page files under /scenarios/
-- [ ] Register 10 new routes in App.tsx
-- [ ] Add new scenarios to footer category links
-- [ ] Update sitemap.xml with 10 new URLs
-- [ ] Push to GitHub and save checkpoint
+- [x] Add 10 new paycheck-to-paycheck / high-debt settlement candidate scenarios to scenarios.ts
+- [x] Generate 10 new scenario page files under /scenarios/
+- [x] Register 10 new routes in App.tsx
+- [x] Add new scenarios to footer category links
+- [x] Update sitemap.xml with 10 new URLs
+- [x] Push to GitHub and save checkpoint
+
+## Calculator & Comparison Table
+- [x] Build DebtSavingsCalculator component (minimum payments vs settlement visual comparison)
+- [x] Build OptionsComparisonTable component (all 5 methods, pros/cons, success rates, credit impact)
+- [x] Integrate both into shared ScenarioPage template (applies to all 30 pages)
+- [x] TypeScript check, checkpoint, push to GitHub

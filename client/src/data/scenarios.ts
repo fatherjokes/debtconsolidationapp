@@ -1908,6 +1908,8 @@ export const ALL_SCENARIOS: ScenarioData[] = [
       { slug: "high-debt-to-income-ratio", title: "High Debt-to-Income Ratio" },
       { slug: "credit-card-debt-fair-credit", title: "Fair Credit Card Debt Strategy" },
     ],
+    calculatorDefaults: { debt: 38000, apr: 24, settlementPct: 50 },
+    comparisonHighlight: "settlement",
   },
 
   // ─── 22 ─── Single Parent Paycheck to Paycheck ───────────────────────────
@@ -1999,6 +2001,8 @@ export const ALL_SCENARIOS: ScenarioData[] = [
       { slug: "debt-settlement-candidate", title: "When Debt Settlement Makes Sense" },
       { slug: "recent-job-loss-debt-emergency", title: "After Job Loss" },
     ],
+    calculatorDefaults: { debt: 31000, apr: 26, settlementPct: 50 },
+    comparisonHighlight: "settlement",
   },
 
   // ─── 23 ─── Minimum Payment Trap ─────────────────────────────────────────
@@ -2090,6 +2094,8 @@ export const ALL_SCENARIOS: ScenarioData[] = [
       { slug: "debt-settlement-candidate", title: "When Debt Settlement Makes Sense" },
       { slug: "high-debt-to-income-ratio", title: "High Debt-to-Income Ratio" },
     ],
+    calculatorDefaults: { debt: 42000, apr: 24, settlementPct: 48 },
+    comparisonHighlight: "settlement",
   },
 
   // ─── 24 ─── Two-Income Household Drowning in Debt ─────────────────────────
@@ -2181,6 +2187,8 @@ export const ALL_SCENARIOS: ScenarioData[] = [
       { slug: "minimum-payment-trap-high-interest-debt", title: "Stuck in the Minimum Payment Trap" },
       { slug: "debt-settlement-candidate", title: "When Debt Settlement Makes Sense" },
     ],
+    calculatorDefaults: { debt: 47000, apr: 23, settlementPct: 50 },
+    comparisonHighlight: "settlement",
   },
 
   // ─── 25 ─── Credit Card Debt After Medical Emergency ──────────────────────
@@ -2272,6 +2280,8 @@ export const ALL_SCENARIOS: ScenarioData[] = [
       { slug: "denied-consolidation-loan-settlement-option", title: "Denied for a Consolidation Loan" },
       { slug: "debt-settlement-candidate", title: "When Debt Settlement Makes Sense" },
     ],
+    calculatorDefaults: { debt: 47000, apr: 23, settlementPct: 50 },
+    comparisonHighlight: "settlement",
   },
 
   // ─── 26 ─── Maxed Out Cards No Savings ───────────────────────────────────
@@ -2363,6 +2373,8 @@ export const ALL_SCENARIOS: ScenarioData[] = [
       { slug: "bankruptcy-last-resort", title: "When Bankruptcy Is Right" },
       { slug: "denied-consolidation-loan-settlement-option", title: "Denied for a Consolidation Loan" },
     ],
+    calculatorDefaults: { debt: 45000, apr: 25, settlementPct: 50 },
+    comparisonHighlight: "settlement",
   },
 
   // ─── 27 ─── High-Interest Store Cards and Personal Loans ─────────────────
@@ -2454,6 +2466,8 @@ export const ALL_SCENARIOS: ScenarioData[] = [
       { slug: "denied-consolidation-loan-settlement-option", title: "Denied for a Consolidation Loan" },
       { slug: "debt-settlement-candidate", title: "When Debt Settlement Makes Sense" },
     ],
+    calculatorDefaults: { debt: 52000, apr: 23, settlementPct: 50 },
+    comparisonHighlight: "settlement",
   },
 
   // ─── 28 ─── Recent Layoff with Accumulated Debt ───────────────────────────
@@ -2545,6 +2559,8 @@ export const ALL_SCENARIOS: ScenarioData[] = [
       { slug: "denied-consolidation-loan-settlement-option", title: "Denied for a Consolidation Loan" },
       { slug: "debt-settlement-candidate", title: "When Debt Settlement Makes Sense" },
     ],
+    calculatorDefaults: { debt: 52000, apr: 23, settlementPct: 50 },
+    comparisonHighlight: "settlement",
   },
 
   // ─── 29 ─── Overspending Lifestyle Debt ───────────────────────────────────
@@ -2636,6 +2652,8 @@ export const ALL_SCENARIOS: ScenarioData[] = [
       { slug: "denied-consolidation-loan-settlement-option", title: "Denied for a Consolidation Loan" },
       { slug: "two-income-household-drowning-in-debt", title: "Two-Income Household Drowning in Debt" },
     ],
+    calculatorDefaults: { debt: 50000, apr: 24, settlementPct: 50 },
+    comparisonHighlight: "settlement",
   },
 
   // ─── 30 ─── Self-Employed with Irregular Income and High Debt ─────────────
@@ -2727,6 +2745,8 @@ export const ALL_SCENARIOS: ScenarioData[] = [
       { slug: "denied-consolidation-loan-settlement-option", title: "Denied for a Consolidation Loan" },
       { slug: "debt-settlement-candidate", title: "When Debt Settlement Makes Sense" },
     ],
+    calculatorDefaults: { debt: 44000, apr: 24, settlementPct: 50 },
+    comparisonHighlight: "settlement",
   },
 ];
 

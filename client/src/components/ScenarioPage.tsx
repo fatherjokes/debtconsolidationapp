@@ -3,6 +3,8 @@ import { ArrowLeft, AlertTriangle, CheckCircle, XCircle, Clock, TrendingDown, St
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
+import DebtSavingsCalculator from "@/components/DebtSavingsCalculator";
+import OptionsComparisonTable from "@/components/OptionsComparisonTable";
 
 export interface OptionData {
   rank: number;
@@ -40,6 +42,14 @@ export interface ScenarioData {
   options: OptionData[];
   disclaimer: string;
   relatedScenarios: { slug: string; title: string }[];
+  // Optional calculator defaults derived from profile
+  calculatorDefaults?: {
+    debt?: number;
+    apr?: number;
+    settlementPct?: number;
+  };
+  // Optional comparison table highlight — maps to option id
+  comparisonHighlight?: string;
 }
 
 const CREDIT_IMPACT_CONFIG: Record<
@@ -244,6 +254,28 @@ export default function ScenarioPage({ scenario }: { scenario: ScenarioData }) {
                   );
                 })}
               </div>
+            </section>
+
+            {/* Savings Calculator */}
+            <section>
+              <h2 className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4 flex items-center gap-2">
+                <span className="w-4 h-px bg-red-600 inline-block" /> Savings Calculator
+              </h2>
+              <DebtSavingsCalculator
+                defaultDebt={scenario.calculatorDefaults?.debt}
+                defaultApr={scenario.calculatorDefaults?.apr}
+                defaultSettlementPct={scenario.calculatorDefaults?.settlementPct}
+              />
+            </section>
+
+            <Separator className="bg-black" />
+
+            {/* Options Comparison Table */}
+            <section>
+              <h2 className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4 flex items-center gap-2">
+                <span className="w-4 h-px bg-red-600 inline-block" /> Compare All Options
+              </h2>
+              <OptionsComparisonTable highlightOption={scenario.comparisonHighlight} />
             </section>
 
             {/* Disclaimer */}
