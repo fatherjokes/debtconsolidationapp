@@ -31,6 +31,16 @@ import RecentJobLossDebtEmergency from "./pages/scenarios/RecentJobLossDebtEmerg
 import YoungProfessionalEarlyDebt from "./pages/scenarios/YoungProfessionalEarlyDebt";
 import HighDebtToIncomeRatio from "./pages/scenarios/HighDebtToIncomeRatio";
 import DebtFreeInTwoYears from "./pages/scenarios/DebtFreeInTwoYears";
+import DeniedConsolidationLoanSettlementOption from "./pages/scenarios/DeniedConsolidationLoanSettlementOption";
+import SingleParentPaycheckToPaycheckDebt from "./pages/scenarios/SingleParentPaycheckToPaycheckDebt";
+import MinimumPaymentTrapHighInterestDebt from "./pages/scenarios/MinimumPaymentTrapHighInterestDebt";
+import TwoIncomeHouseholdDrowningInDebt from "./pages/scenarios/TwoIncomeHouseholdDrowningInDebt";
+import CreditCardDebtAfterMedicalEmergency from "./pages/scenarios/CreditCardDebtAfterMedicalEmergency";
+import MaxedOutCardsNoSavingsSettlement from "./pages/scenarios/MaxedOutCardsNoSavingsSettlement";
+import HighInterestStoreCardsPersonalLoansSettlement from "./pages/scenarios/HighInterestStoreCardsPersonalLoansSettlement";
+import LayoffAccumulatedDebtSettlement from "./pages/scenarios/LayoffAccumulatedDebtSettlement";
+import OverspendingLifestyleDebtSettlement from "./pages/scenarios/OverspendingLifestyleDebtSettlement";
+import SelfEmployedIrregularIncomeHighDebt from "./pages/scenarios/SelfEmployedIrregularIncomeHighDebt";
 
 function Router() {
   return (
@@ -62,6 +72,18 @@ function Router() {
       <Route path="/scenarios/young-professional-early-debt" component={YoungProfessionalEarlyDebt} />
       <Route path="/scenarios/high-debt-to-income-ratio" component={HighDebtToIncomeRatio} />
       <Route path="/scenarios/debt-free-in-two-years" component={DebtFreeInTwoYears} />
+
+      {/* Settlement-focused scenarios */}
+      <Route path="/scenarios/denied-consolidation-loan-settlement-option" component={DeniedConsolidationLoanSettlementOption} />
+      <Route path="/scenarios/single-parent-paycheck-to-paycheck-debt" component={SingleParentPaycheckToPaycheckDebt} />
+      <Route path="/scenarios/minimum-payment-trap-high-interest-debt" component={MinimumPaymentTrapHighInterestDebt} />
+      <Route path="/scenarios/two-income-household-drowning-in-debt" component={TwoIncomeHouseholdDrowningInDebt} />
+      <Route path="/scenarios/credit-card-debt-after-medical-emergency" component={CreditCardDebtAfterMedicalEmergency} />
+      <Route path="/scenarios/maxed-out-cards-no-savings-settlement" component={MaxedOutCardsNoSavingsSettlement} />
+      <Route path="/scenarios/high-interest-store-cards-personal-loans-settlement" component={HighInterestStoreCardsPersonalLoansSettlement} />
+      <Route path="/scenarios/layoff-accumulated-debt-settlement" component={LayoffAccumulatedDebtSettlement} />
+      <Route path="/scenarios/overspending-lifestyle-debt-settlement" component={OverspendingLifestyleDebtSettlement} />
+      <Route path="/scenarios/self-employed-irregular-income-high-debt" component={SelfEmployedIrregularIncomeHighDebt} />
 
       <Route path="/404" component={NotFound} />
       <Route component={NotFound} />

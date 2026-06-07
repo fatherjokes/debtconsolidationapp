@@ -87,3 +87,11 @@
 - [x] Fix scenarios where DMP is recommended without adequate dropout risk context
 - [x] Add debt settlement as top pick for paycheck-to-paycheck high-DTI profiles
 - [x] Push updated scenarios and prompt to GitHub
+
+## Settlement-Focused Scenario Expansion (10 new scenarios)
+- [ ] Add 10 new paycheck-to-paycheck / high-debt settlement candidate scenarios to scenarios.ts
+- [ ] Generate 10 new scenario page files under /scenarios/
+- [ ] Register 10 new routes in App.tsx
+- [ ] Add new scenarios to footer category links
+- [ ] Update sitemap.xml with 10 new URLs
+- [ ] Push to GitHub and save checkpoint

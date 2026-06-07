@@ -146,4 +146,66 @@
     <priority>0.8</priority>
   </url>
 
+  <!-- Settlement-focused scenario pages -->
+  <url>
+    <loc>https://debtconsolidationapp.com/scenarios/denied-consolidation-loan-settlement-option</loc>
+    <lastmod>2026-06-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://debtconsolidationapp.com/scenarios/minimum-payment-trap-high-interest-debt</loc>
+    <lastmod>2026-06-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://debtconsolidationapp.com/scenarios/single-parent-paycheck-to-paycheck-debt</loc>
+    <lastmod>2026-06-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://debtconsolidationapp.com/scenarios/two-income-household-drowning-in-debt</loc>
+    <lastmod>2026-06-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://debtconsolidationapp.com/scenarios/credit-card-debt-after-medical-emergency</loc>
+    <lastmod>2026-06-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://debtconsolidationapp.com/scenarios/maxed-out-cards-no-savings-settlement</loc>
+    <lastmod>2026-06-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://debtconsolidationapp.com/scenarios/high-interest-store-cards-personal-loans-settlement</loc>
+    <lastmod>2026-06-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://debtconsolidationapp.com/scenarios/layoff-accumulated-debt-settlement</loc>
+    <lastmod>2026-06-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://debtconsolidationapp.com/scenarios/overspending-lifestyle-debt-settlement</loc>
+    <lastmod>2026-06-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://debtconsolidationapp.com/scenarios/self-employed-irregular-income-high-debt</loc>
+    <lastmod>2026-06-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
 </urlset>
