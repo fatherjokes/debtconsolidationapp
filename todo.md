@@ -78,3 +78,12 @@
 - [x] Add footer with scenario links to Home page
 - [x] Update sitemap.xml with all 20 scenario URLs
 - [x] Push to GitHub
+
+## Accuracy Improvements
+- [x] Update LLM system prompt with DTI qualification gates for consolidation loan recommendations
+- [x] Add DMP success rate caveats and dropout risk warnings to LLM prompt
+- [x] Audit all 20 scenarios for DTI/income accuracy
+- [x] Fix scenarios where consolidation loan is recommended but DTI would disqualify
+- [x] Fix scenarios where DMP is recommended without adequate dropout risk context
+- [x] Add debt settlement as top pick for paycheck-to-paycheck high-DTI profiles
+- [x] Push updated scenarios and prompt to GitHub

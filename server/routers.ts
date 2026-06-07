@@ -25,10 +25,30 @@ const assessmentInputSchema = z.object({
 
 function buildAnalysisPrompt(input: AssessmentInput): string {
   const dti = ((input.monthlyExpenses / input.monthlyIncome) * 100).toFixed(1);
+  const dtiNum = parseFloat(dti);
   const disposable = (input.monthlyIncome - input.monthlyExpenses).toFixed(0);
-  const monthsToPayoff = input.monthlyIncome > input.monthlyExpenses
-    ? Math.ceil(input.totalDebt / (input.monthlyIncome - input.monthlyExpenses))
+  const disposableNum = input.monthlyIncome - input.monthlyExpenses;
+  const monthsToPayoff = disposableNum > 0
+    ? Math.ceil(input.totalDebt / disposableNum)
     : 999;
+  const totalInterestIfMinimums = disposableNum > 0 && monthsToPayoff < 500
+    ? Math.round((monthsToPayoff * input.monthlyExpenses) - input.totalDebt)
+    : null;
+  // Qualification flags
+  const likelyQualifiesForConsolidationLoan =
+    (input.creditScoreRange === "excellent" || input.creditScoreRange === "good") && dtiNum < 43;
+  const marginalConsolidationLoanQualification =
+    input.creditScoreRange === "fair" && dtiNum < 50;
+  const consolidationLoanLikelyDenied =
+    input.creditScoreRange === "poor" || input.creditScoreRange === "bad" || dtiNum >= 50;
+  const likelyQualifiesForBalanceTransfer =
+    (input.creditScoreRange === "excellent" || input.creditScoreRange === "good") && input.totalDebt < 25000;
+  const paycheckToPaycheck = disposableNum < (input.monthlyIncome * 0.05);
+  const debtTakesDecades = monthsToPayoff > 120; // 10+ years at current pace
+  const settlementMakesFinancialSense =
+    (paycheckToPaycheck || debtTakesDecades) &&
+    (input.creditScoreRange === "poor" || input.creditScoreRange === "bad" || input.creditScoreRange === "fair") &&
+    input.totalDebt > 10000;
 
   const creditMap: Record<string, string> = {
     excellent: "750+",
@@ -52,37 +72,76 @@ function buildAnalysisPrompt(input: AssessmentInput): string {
     lowest_payment: "minimize their monthly payment",
   };
 
-  return `You are a certified debt relief counselor AI. Analyze this person's financial profile and provide a comprehensive, personalized debt relief recommendation.
+  return `You are a certified debt relief counselor AI with expertise in real-world loan qualification criteria, credit underwriting, and debt program success rates. Analyze this person's financial profile and provide a comprehensive, accurate, personalized debt relief recommendation.
 
 FINANCIAL PROFILE:
 - Total unsecured debt: $${input.totalDebt.toLocaleString()}
 - Monthly take-home income: $${input.monthlyIncome.toLocaleString()}
 - Monthly expenses (including min payments): $${input.monthlyExpenses.toLocaleString()}
 - Estimated disposable income: $${disposable}/month
-- Debt-to-income ratio: ${dti}%
+- Debt-to-income ratio (DTI): ${dti}%
 - Credit score range: ${creditMap[input.creditScoreRange] || input.creditScoreRange}
 - Number of creditors: ${input.numberOfCreditors}
 - Home purchase timeline: ${timelineMap[input.homePurchaseTimeline] || input.homePurchaseTimeline}
 - Primary priority: ${priorityMap[input.primaryPriority] || input.primaryPriority}
 - Risk tolerance: ${input.riskTolerance}
-- Estimated months to pay off at current disposable income: ${monthsToPayoff > 500 ? "Not feasible without intervention" : monthsToPayoff + " months"}
+- Estimated months to pay off at current pace: ${monthsToPayoff > 500 ? "Not feasible — debt will never be paid off without intervention" : monthsToPayoff + " months (" + Math.round(monthsToPayoff/12) + " years)"}
+${totalInterestIfMinimums !== null ? `- Estimated total interest cost at current pace: $${totalInterestIfMinimums.toLocaleString()} (${Math.round(totalInterestIfMinimums/input.totalDebt*100)}% more than original debt)` : "- Total interest cost: Incalculable — debt is growing faster than it can be paid"}
+- Living paycheck to paycheck: ${paycheckToPaycheck ? "YES — disposable income is less than 5% of monthly income" : "No"}
+- Debt takes 10+ years at current pace: ${debtTakesDecades ? "YES" : "No"}
+- Debt settlement makes financial sense: ${settlementMakesFinancialSense ? "YES — mathematically superior to decades of minimum payments" : "Not necessarily"}
 
-TASK: Analyze ALL FIVE debt relief options and rank them by suitability for this specific person. You MUST include all five options even if some are not recommended.
+QUALIFICATION ASSESSMENT (pre-computed — use these in your analysis):
+- Consolidation loan likely approved: ${likelyQualifiesForConsolidationLoan ? "YES (good/excellent credit, DTI under 43%)" : "NO"}
+- Consolidation loan marginal: ${marginalConsolidationLoanQualification ? "MARGINAL (fair credit, DTI under 50% — expect 20-30% APR, not much better than cards)" : "N/A"}
+- Consolidation loan likely denied: ${consolidationLoanLikelyDenied ? "YES — poor/bad credit or DTI ≥50% means most lenders will decline or offer predatory rates" : "No"}
+- Balance transfer likely approved: ${likelyQualifiesForBalanceTransfer ? "YES (good/excellent credit, manageable balance)" : "NO — requires good/excellent credit and typically under $25,000"}
 
-For each option, consider:
-1. Whether the person qualifies (credit score, debt amount, income)
-2. Impact on their home purchase timeline goal
-3. Alignment with their primary priority
-4. Their risk tolerance
-5. Their debt-to-income ratio and disposable income
+TASK: Analyze ALL FIVE debt relief options and rank them by suitability. You MUST include all five options.
 
-CRITICAL RULES:
-- If home purchase is within 1-2 years, debt settlement and bankruptcy should score very low (10-30) due to credit damage
-- If credit score is excellent/good, balance transfer and consolidation loan should score higher
-- If credit score is poor/bad, consolidation loan and balance transfer will be hard to qualify for
-- If disposable income is very low or negative, debt management plan or settlement may be necessary
-- Always provide honest, balanced pros and cons — do not sugarcoat aggressive options
-- The aggressiveWarning for settlement and bankruptcy must explicitly state: credit score drops 100-200+ points, stays on record 7-10 years, makes mortgage qualification very difficult
+CRITICAL QUALIFICATION RULES — THESE ARE HARD GATES, NOT SUGGESTIONS:
+
+1. DEBT CONSOLIDATION LOAN:
+   - ONLY recommend as top option if consolidation loan is "likely approved" above
+   - If "marginal": rank it 2nd or 3rd at most; warn that the rate offered may be 20-30% APR — barely better than credit cards — and the person may be declined after a hard credit inquiry
+   - If "likely denied": rank it 4th or 5th; explain clearly that lenders require DTI under 43-50% and credit score above 640-670; applying will result in hard inquiry damage with likely rejection
+   - NEVER recommend a consolidation loan as the top option for someone with poor/bad credit or DTI ≥ 50%
+
+2. BALANCE TRANSFER:
+   - ONLY recommend as a top option if balance transfer is "likely approved" above
+   - Requires good/excellent credit (700+) and typically a balance under $20,000-25,000
+   - If credit is fair/poor/bad: rank 4th or 5th; explain the person will not qualify for 0% promotional cards
+
+3. DEBT MANAGEMENT PLAN (DMP):
+   - DMP completion rates are only 25-40% industry-wide (NFCC data). 60-75% of enrollees drop out before finishing.
+   - DMPs require 3-5 years of consistent payments. Life changes, income disruptions, or unexpected expenses frequently cause dropout.
+   - When recommending DMP, ALWAYS include in the cons: "Only 25-40% of enrollees complete the full program; dropout returns accounts to original high-interest rates with no credit benefit"
+   - DMP is appropriate when: credit score is fair/poor (can't qualify for consolidation loan), person has stable income, debt is $10,000-$50,000, and they are NOT living paycheck to paycheck
+   - DMP is NOT appropriate as the primary recommendation when: disposable income is less than 5% of income (paycheck to paycheck), income is irregular/gig-based, or debt is so large the 3-5 year timeline is unrealistic
+   - If the person is living paycheck to paycheck AND has fair/poor/bad credit AND debt takes decades to pay off, debt settlement likely outranks DMP in suitability
+
+4. DEBT SETTLEMENT:
+   - Settlement is appropriate (and can be the TOP recommendation) when ALL of the following are true:
+     a) Person cannot qualify for a consolidation loan (poor/bad credit or high DTI)
+     b) Person is living paycheck to paycheck OR debt would take 10+ years to pay off
+     c) Total debt is over $10,000
+     d) Home purchase is NOT within 1-2 years
+   - Settlement resolves debt for 40-60 cents on the dollar but damages credit 100-200 points for 7 years
+   - When settlement makes financial sense, it is often BETTER than paying 3-5x the original balance over decades — be honest about this math
+   - The aggressiveWarning MUST state: credit score drops 100-200+ points, negative marks stay 7 years, mortgage qualification becomes very difficult for 2-4 years after completion
+
+5. BANKRUPTCY:
+   - Chapter 7 is appropriate when: monthly expenses exceed income, wage garnishment is active or imminent, or total debt is so large that even settlement is not feasible
+   - Chapter 13 is appropriate when: person has regular income but needs court-supervised repayment restructuring
+   - Bankruptcy stays on credit report 7-10 years (Chapter 13 / Chapter 7 respectively)
+   - If home purchase is within 1-2 years, settlement and bankruptcy score very low (10-30) regardless of other factors
+
+ADDITIONAL RULES:
+- Always reference the person's actual numbers (DTI %, disposable income, months to payoff, total interest cost)
+- If the person would pay more than 2x their original debt at the current pace, say so explicitly in the relevant option explanations
+- Never recommend a product the person cannot realistically qualify for as the #1 option
+- Always provide honest, balanced pros and cons — do not sugarcoat aggressive options or oversell optimistic ones
+- The plainLanguageExplanation must reference their actual DTI, credit score, and payoff timeline when relevant
 
 Respond with ONLY valid JSON matching this exact schema:
 {
