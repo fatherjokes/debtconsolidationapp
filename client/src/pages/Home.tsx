@@ -1,6 +1,7 @@
 import { Link } from "wouter";
 import { ArrowRight, Shield, Zap, BarChart3, ChevronRight } from "lucide-react";
 import { SCENARIO_CATEGORIES } from "@/data/scenarios";
+import SortableOptionsView from "@/components/SortableOptionsView";
 
 export default function Home() {
   return (
@@ -148,68 +149,9 @@ export default function Home() {
       </section>
 
       {/* ── Options Overview ─────────────────────────────────────────────── */}
-      <section id="options" className="border-b border-black bg-gray-50">
-        <div className="swiss-container py-20">
-          <div className="flex items-center gap-3 mb-4">
-            <span className="swiss-accent" />
-            <span className="swiss-label">What We Analyze</span>
-          </div>
-          <h2 className="font-black mb-12 max-w-2xl">
-            All Five Debt Relief Options, Ranked for You
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-0 border border-black">
-            {[
-              {
-                name: "Debt Consolidation Loan",
-                tag: "Low Risk",
-                tagColor: "bg-green-100 text-green-800",
-                desc: "Combine multiple debts into one lower-interest loan.",
-              },
-              {
-                name: "Balance Transfer Card",
-                tag: "Low Risk",
-                tagColor: "bg-green-100 text-green-800",
-                desc: "Move high-interest balances to a 0% APR promotional card.",
-              },
-              {
-                name: "Debt Management Plan",
-                tag: "Moderate",
-                tagColor: "bg-yellow-100 text-yellow-800",
-                desc: "Work with a nonprofit credit counselor to reduce rates.",
-              },
-              {
-                name: "Debt Settlement",
-                tag: "High Risk",
-                tagColor: "bg-red-100 text-red-800",
-                desc: "Negotiate to pay less than you owe. Significant credit damage.",
-              },
-              {
-                name: "Bankruptcy",
-                tag: "Severe",
-                tagColor: "bg-red-200 text-red-900",
-                desc: "Legal debt discharge. Stays on credit report 7–10 years.",
-              },
-            ].map((opt, i) => (
-              <div
-                key={i}
-                className={`p-6 bg-white ${i < 4 ? "border-b md:border-b-0 md:border-r border-black" : ""}`}
-              >
-                <span className={`text-xs font-bold px-2 py-1 ${opt.tagColor} mb-4 inline-block`}>
-                  {opt.tag}
-                </span>
-                <h4 className="font-bold text-sm mb-2 leading-tight">{opt.name}</h4>
-                <p className="text-xs text-gray-500 leading-relaxed">{opt.desc}</p>
-              </div>
-            ))}
-          </div>
-          <div className="mt-8 p-6 border border-black bg-white">
-            <div className="flex items-start gap-3">
-              <span className="swiss-accent mt-1" style={{ width: 8, height: 8, flexShrink: 0 }} />
-              <p className="text-sm text-gray-600">
-                <strong className="text-black">Important:</strong> Debt settlement and bankruptcy carry severe, long-term credit consequences. Our tool clearly identifies when these options are and are not appropriate for your situation, and always presents lower-risk alternatives first.
-              </p>
-            </div>
-          </div>
+      <section id="options" className="border-b border-black">
+        <div className="swiss-container">
+          <SortableOptionsView />
         </div>
       </section>
 

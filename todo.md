@@ -101,3 +101,9 @@
 - [x] Build OptionsComparisonTable component (all 5 methods, pros/cons, success rates, credit impact)
 - [x] Integrate both into shared ScenarioPage template (applies to all 30 pages)
 - [x] TypeScript check, checkpoint, push to GitHub
+
+## Sortable Options View
+- [x] Build SortableOptionsView component with 3 tab views: Sort by Savings, Sort by Speed, Sort by Success Rate
+- [x] Replace Home page risk-ordered options section with SortableOptionsView
+- [x] Update OptionsComparisonTable default ordering to neutral (not risk-first)
+- [x] TypeScript check, checkpoint, push to GitHub

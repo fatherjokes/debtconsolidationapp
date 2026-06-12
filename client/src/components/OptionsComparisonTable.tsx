@@ -166,10 +166,10 @@ export default function OptionsComparisonTable({ highlightOption }: OptionsCompa
         </h3>
       </div>
 
-      {/* Success rate callout */}
+      {/* Context callout */}
       <div className="border-b border-black bg-gray-50 px-6 py-3">
         <p className="text-xs text-gray-600 leading-relaxed">
-          <strong>Why success rates matter:</strong> A debt management plan saves the most money for completers — but 60–75% of enrollees drop out. Debt settlement resolves debt faster than minimum payments and saves more total money despite the credit hit. Choosing the right option means matching the program to your income stability, not just the potential savings.
+          <strong>How to read this table:</strong> Credit impact is one factor — not the only factor. Staying in debt for 20+ years at 22% APR costs 2–3× the original balance. Debt settlement, despite its credit hit, can eliminate debt in 2–4 years at 40–60 cents on the dollar. The right option depends on your income stability, DTI, and timeline — not just credit score.
         </p>
       </div>
 
@@ -289,8 +289,8 @@ export default function OptionsComparisonTable({ highlightOption }: OptionsCompa
                   <h4 className={`font-black text-sm uppercase tracking-widest ${isHighlighted ? "text-red-700" : ""}`}>
                     {opt.name}
                   </h4>
-                  <span className={`ml-auto text-xs px-2 py-0.5 font-bold rounded-sm ${opt.riskColor}`}>
-                    {opt.riskLevel} Risk
+                  <span className={`ml-auto text-xs px-2 py-0.5 font-bold rounded-sm ${opt.creditColor}`}>
+                    Credit: {opt.creditImpact}
                   </span>
                 </div>
 
