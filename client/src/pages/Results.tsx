@@ -1,7 +1,7 @@
 import { useState, useRef } from "react";
 import { useParams, Link } from "wouter";
 import { trpc } from "@/lib/trpc";
-import { ArrowLeft, Share2, Download, MessageCircle, ChevronDown, ChevronUp, AlertTriangle, CheckCircle, XCircle, Clock, TrendingDown, Copy, Check } from "lucide-react";
+import { ArrowLeft, Share2, Download, MessageCircle, ChevronDown, ChevronUp, AlertTriangle, CheckCircle, XCircle, Clock, TrendingDown, Copy, Check, Phone } from "lucide-react";
 import type { DebtRecommendation, RecommendationResult } from "../../../shared/types";
 import { CREDIT_SCORE_LABELS, HOME_TIMELINE_LABELS, PRIORITY_LABELS, RISK_LABELS } from "../../../shared/types";
 import { Streamdown } from "streamdown";
@@ -527,19 +527,38 @@ export default function Results() {
           </div>
         </div>
 
-        {/* CTA to chat */}
-        <div className="mt-8 p-6 border border-black flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div>
-            <p className="font-bold mb-1">Have questions about your results?</p>
-            <p className="text-sm text-gray-500">Our AI advisor can explain any option in detail, clarify financial terms, or explore alternative scenarios.</p>
+        {/* Talk to a Specialist CTA */}
+        <div className="mt-8 border border-black">
+          <div className="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-black">
+            {/* Phone CTA */}
+            <div className="p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-black text-white">
+              <div>
+                <p className="font-black text-lg mb-1">Talk to a Debt Specialist</p>
+                <p className="text-sm text-gray-400">Get a free consultation with a licensed debt specialist who can review your options and help you take the next step.</p>
+              </div>
+              <a
+                href="tel:+18005551234"
+                className="btn-swiss border border-white text-white bg-transparent hover:bg-white hover:text-black transition-colors flex items-center gap-2 text-sm whitespace-nowrap flex-shrink-0"
+              >
+                <Phone size={15} />
+                Call Now — Free
+              </a>
+            </div>
+            {/* AI Chat CTA */}
+            <div className="p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+              <div>
+                <p className="font-bold mb-1">Have questions about your results?</p>
+                <p className="text-sm text-gray-500">Our AI advisor can explain any option in detail, clarify financial terms, or explore alternative scenarios.</p>
+              </div>
+              <button
+                onClick={() => setChatOpen(true)}
+                className="btn-swiss btn-swiss-red flex items-center gap-2 text-sm whitespace-nowrap flex-shrink-0"
+              >
+                <MessageCircle size={16} />
+                Ask AI
+              </button>
+            </div>
           </div>
-          <button
-            onClick={() => setChatOpen(true)}
-            className="btn-swiss btn-swiss-red flex items-center gap-2 text-sm whitespace-nowrap"
-          >
-            <MessageCircle size={16} />
-            Open AI Chat
-          </button>
         </div>
       </div>
 
