@@ -1,5 +1,5 @@
 import { Link } from "wouter";
-import { ArrowLeft, AlertTriangle, CheckCircle, XCircle, Clock, TrendingDown, Star } from "lucide-react";
+import { ArrowLeft, AlertTriangle, CheckCircle, XCircle, Clock, TrendingDown, Star, Phone } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
@@ -113,6 +113,23 @@ export default function ScenarioPage({ scenario }: { scenario: ScenarioData }) {
           </Link>
         </div>
       </header>
+
+      {/* Above-the-fold specialist CTA banner */}
+      <div className="bg-black text-white">
+        <div className="max-w-5xl mx-auto px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-3">
+          <div className="flex items-center gap-3">
+            <div className="w-2 h-2 bg-red-600 flex-shrink-0" />
+            <p className="text-sm font-semibold">Talk to a licensed debt specialist — free consultation, no obligation.</p>
+          </div>
+          <a
+            href="tel:+18005551234"
+            className="flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white text-sm font-black uppercase tracking-widest px-5 py-2.5 transition-colors whitespace-nowrap flex-shrink-0"
+          >
+            <Phone size={14} />
+            Call Now — Free
+          </a>
+        </div>
+      </div>
 
       {/* Hero */}
       <section className="border-b border-black bg-black text-white">
