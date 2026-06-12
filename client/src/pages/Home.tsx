@@ -15,11 +15,11 @@ export default function Home() {
               DebtConsolidationApp
             </span>
           </div>
-          <div className="flex items-center gap-6">
-            <a href="#how-it-works" className="text-xs font-semibold tracking-widest uppercase text-gray-600 hover:text-black transition-colors">
+          <div className="flex items-center gap-4">
+            <a href="#how-it-works" className="hidden md:block text-xs font-semibold tracking-widest uppercase text-gray-600 hover:text-black transition-colors">
               How It Works
             </a>
-            <a href="#options" className="text-xs font-semibold tracking-widest uppercase text-gray-600 hover:text-black transition-colors">
+            <a href="#options" className="hidden md:block text-xs font-semibold tracking-widest uppercase text-gray-600 hover:text-black transition-colors">
               Options
             </a>
             <Link href="/assessment">

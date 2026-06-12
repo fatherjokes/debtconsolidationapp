@@ -278,7 +278,7 @@ function ShareButton({ resultId, assessmentId }: { resultId: number; assessmentI
       className="btn-swiss flex items-center gap-2 text-xs"
     >
       {copied ? <Check size={14} /> : <Share2 size={14} />}
-      {copied ? "Copied!" : shareMutation.isPending ? "Generating..." : "Share Results"}
+      <span className="hidden sm:inline">{copied ? "Copied!" : shareMutation.isPending ? "Generating..." : "Share Results"}</span>
     </button>
   );
 }
@@ -384,7 +384,7 @@ function PrintButton({ result }: { result: RecommendationResult }) {
   return (
     <button onClick={handlePrint} className="btn-swiss flex items-center gap-2 text-xs">
       <Download size={14} />
-      Download PDF
+      <span className="hidden sm:inline">Download PDF</span>
     </button>
   );
 }
@@ -437,20 +437,19 @@ export default function Results() {
             <span className="swiss-accent" style={{ width: 16, height: 16 }} />
             <span className="font-black text-sm tracking-widest uppercase hidden sm:block">DebtConsolidationApp</span>
           </Link>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1.5 sm:gap-2">
             <a
               href="tel:+18005551234"
-              className="btn-swiss btn-swiss-red flex items-center gap-2 text-xs"
+              className="btn-swiss btn-swiss-red flex items-center gap-1.5 text-xs px-2.5 sm:px-4"
             >
               <Phone size={14} />
               <span className="hidden sm:inline">Talk to a Specialist</span>
-              <span className="sm:hidden">Call Free</span>
             </a>
             <ShareButton resultId={resultId} assessmentId={assessmentId} />
             <PrintButton result={result} />
             <button
               onClick={() => setChatOpen(true)}
-              className="btn-swiss flex items-center gap-2 text-xs"
+              className="btn-swiss flex items-center gap-1.5 text-xs px-2.5 sm:px-4"
             >
               <MessageCircle size={14} />
               <span className="hidden sm:inline">Ask AI</span>
