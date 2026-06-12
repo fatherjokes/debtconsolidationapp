@@ -435,21 +435,46 @@ export default function Results() {
         <div className="swiss-container flex items-center justify-between h-16">
           <Link href="/" className="flex items-center gap-3">
             <span className="swiss-accent" style={{ width: 16, height: 16 }} />
-            <span className="font-black text-sm tracking-widest uppercase">DebtConsolidationApp</span>
+            <span className="font-black text-sm tracking-widest uppercase hidden sm:block">DebtConsolidationApp</span>
           </Link>
           <div className="flex items-center gap-2">
+            <a
+              href="tel:+18005551234"
+              className="btn-swiss btn-swiss-red flex items-center gap-2 text-xs"
+            >
+              <Phone size={14} />
+              <span className="hidden sm:inline">Talk to a Specialist</span>
+              <span className="sm:hidden">Call Free</span>
+            </a>
             <ShareButton resultId={resultId} assessmentId={assessmentId} />
             <PrintButton result={result} />
             <button
               onClick={() => setChatOpen(true)}
-              className="btn-swiss btn-swiss-red flex items-center gap-2 text-xs"
+              className="btn-swiss flex items-center gap-2 text-xs"
             >
               <MessageCircle size={14} />
-              Ask AI
+              <span className="hidden sm:inline">Ask AI</span>
             </button>
           </div>
         </div>
       </nav>
+
+      {/* Above-the-fold specialist CTA banner */}
+      <div className="bg-black text-white">
+        <div className="swiss-container py-4 flex flex-col sm:flex-row items-center justify-between gap-3">
+          <div className="flex items-center gap-3">
+            <div className="w-2 h-2 bg-red-600 flex-shrink-0" />
+            <p className="text-sm font-semibold">Your results are ready — a licensed debt specialist can help you act on them.</p>
+          </div>
+          <a
+            href="tel:+18005551234"
+            className="flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white text-sm font-black uppercase tracking-widest px-5 py-2.5 transition-colors whitespace-nowrap flex-shrink-0"
+          >
+            <Phone size={14} />
+            Call Now — Free
+          </a>
+        </div>
+      </div>
 
       <div className="swiss-container py-12">
         {/* Back link */}
