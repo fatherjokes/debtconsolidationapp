@@ -1,5 +1,5 @@
 import { Link } from "wouter";
-import { ArrowRight, Shield, Zap, BarChart3, ChevronRight } from "lucide-react";
+import { ArrowRight, Shield, Zap, BarChart3, ChevronRight, Phone } from "lucide-react";
 import { SCENARIO_CATEGORIES } from "@/data/scenarios";
 import SortableOptionsView from "@/components/SortableOptionsView";
 
@@ -159,7 +159,7 @@ export default function Home() {
       <section className="border-b border-black bg-black text-white">
         <div className="swiss-container py-16">
           <div className="grid grid-cols-1 lg:grid-cols-12 items-center gap-8">
-            <div className="lg:col-span-8">
+            <div className="lg:col-span-7">
               <div className="flex items-center gap-3 mb-4">
                 <span className="swiss-accent" />
                 <span className="swiss-label text-gray-400">Free Assessment</span>
@@ -171,13 +171,17 @@ export default function Home() {
                 No sign-up. No credit check. Just answers.
               </p>
             </div>
-            <div className="lg:col-span-4 flex justify-start lg:justify-end">
+            <div className="lg:col-span-5 flex flex-col sm:flex-row justify-start lg:justify-end gap-3">
               <Link href="/assessment">
                 <button className="btn-swiss btn-swiss-red flex items-center gap-2">
                   Start Free Assessment
                   <ChevronRight size={16} />
                 </button>
               </Link>
+              <a href="tel:+18005551234" className="btn-swiss border border-white text-white bg-transparent hover:bg-white hover:text-black transition-colors flex items-center gap-2">
+                <Phone size={15} />
+                Talk to a Debt Specialist
+              </a>
             </div>
           </div>
         </div>
@@ -192,17 +196,21 @@ export default function Home() {
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-0 mb-10">
             <div className="lg:col-span-7 lg:border-r border-black lg:pr-16">
-              <h2 className="text-2xl font-black leading-tight">20 Real-World Debt Scenarios</h2>
+              <h2 className="text-2xl font-black leading-tight">30 Real-World Debt Scenarios</h2>
               <p className="text-gray-600 mt-2 text-sm leading-relaxed max-w-lg">
                 Explore detailed analyses of common financial situations — each with all five debt relief options ranked, credit impact assessments, and plain-language explanations.
               </p>
             </div>
-            <div className="lg:col-span-5 lg:pl-16 flex items-center mt-6 lg:mt-0">
+            <div className="lg:col-span-5 lg:pl-16 flex flex-col gap-3 items-start justify-center mt-6 lg:mt-0">
               <Link href="/scenarios">
                 <button className="btn-swiss btn-swiss-outline flex items-center gap-2 text-xs">
-                  View All 20 Scenarios <ArrowRight size={14} />
+                  View All 30 Scenarios <ArrowRight size={14} />
                 </button>
               </Link>
+              <a href="tel:+18005551234" className="btn-swiss btn-swiss-red flex items-center gap-2 text-xs">
+                <Phone size={13} />
+                Talk to a Debt Specialist
+              </a>
             </div>
           </div>
 

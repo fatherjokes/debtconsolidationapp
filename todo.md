@@ -107,3 +107,9 @@
 - [x] Replace Home page risk-ordered options section with SortableOptionsView
 - [x] Update OptionsComparisonTable default ordering to neutral (not risk-first)
 - [x] TypeScript check, checkpoint, push to GitHub
+
+## Scenario Reorganization & CTA
+- [x] Merge all 30 scenarios into integrated SCENARIO_CATEGORIES (no separate settlement section)
+- [x] Update Home page scenario count from 20 to 30
+- [x] Add "Talk to a Debt Specialist" CTA button to Home page
+- [x] Footer reflects new merged categories
