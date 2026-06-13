@@ -190,6 +190,66 @@ export default function About() {
               </div>
             </section>
 
+            {/* Personal Debt Journey */}
+            <section>
+              <div className="flex items-center gap-3 mb-6">
+                <span className="w-4 h-px bg-red-600 inline-block" />
+                <span className="text-xs font-bold uppercase tracking-widest text-gray-400">My Debt Journey</span>
+              </div>
+              <h2 className="font-black text-2xl mb-5">I've Been Where You Are</h2>
+
+              {/* Timeline */}
+              <div className="space-y-0 border-l-2 border-black ml-3">
+                {[
+                  {
+                    year: "2008",
+                    label: "The Starting Point",
+                    color: "bg-black",
+                    body: "Adam started The Credit Blogger — a public, real-time journal of his own debt payoff journey — with $62,124 in credit card debt spread across five cards: Bank of America, Chase, AT&T Universal, USAA, and Discover. As a self-employed freelancer and web developer, he was determined to pay it all off through discipline and the debt snowball method.",
+                  },
+                  {
+                    year: "2009",
+                    label: "The Crisis Hits",
+                    color: "bg-red-600",
+                    body: "A perfect storm arrived: unexpected medical bills for his daughter, an IRS self-employment tax bill approaching $9,000, student loans coming off deferment, and a drop in freelance income. Monthly credit card payments exceeded $1,000 — more than he could sustain. He began researching bankruptcy and debt settlement, and by late summer 2009 he stopped making credit card payments entirely.",
+                  },
+                  {
+                    year: "2009–2010",
+                    label: "Going Through Debt Settlement",
+                    color: "bg-red-600",
+                    body: "Adam used a DIY debt settlement program called ZipDebt to navigate the process himself. For 3–4 months, no creditor would negotiate. The collection calls were relentless. But after 5–6 months, Bank of America, Chase, and Citibank agreed to settle. He settled over $43,000 in credit card debt for $13,000 — using money from family, a whole life insurance policy, and savings. Discover Card did not settle.",
+                  },
+                  {
+                    year: "2011",
+                    label: "The Road Back",
+                    color: "bg-gray-700",
+                    body: "With the settled accounts behind him, Adam turned to the remaining balances: USAA, Discover, Capital One, an IRS payment plan of $450/month, and over $35,000 in student loans. He documented each step publicly, sharing the real numbers — not a polished success story, but the messy, honest reality of rebuilding after a financial crisis.",
+                  },
+                  {
+                    year: "2013+",
+                    label: "Turning Experience Into Expertise",
+                    color: "bg-black",
+                    body: "Having lived through the full spectrum of debt relief — from disciplined payoff to DIY settlement to IRS payment plans — Adam joined National Debt Relief, where he spent 9 years helping other consumers navigate the same decisions he had faced. His personal journey gave him something no training manual could: he knew exactly what it felt like to get those collection calls, to weigh bankruptcy against settlement, and to wonder which path was actually right.",
+                  },
+                ].map(({ year, label, color, body }, i) => (
+                  <div key={i} className="relative pl-8 pb-10 last:pb-0">
+                    <span className={`absolute left-0 top-1 w-4 h-4 ${color} -translate-x-[9px] flex-shrink-0`} />
+                    <p className="text-xs font-bold uppercase tracking-widest text-red-600 mb-1">{year}</p>
+                    <p className="font-black text-base mb-2">{label}</p>
+                    <p className="text-sm text-gray-600 leading-relaxed">{body}</p>
+                  </div>
+                ))}
+              </div>
+
+              {/* Pull quote */}
+              <blockquote className="mt-10 border-l-4 border-red-600 pl-6 py-2">
+                <p className="text-lg font-black leading-snug mb-2">
+                  "I settled over $43,000 in credit card debt for $13,000. I know what that process actually looks like from the inside — and I know what the industry doesn't tell you."
+                </p>
+                <footer className="text-xs font-bold uppercase tracking-widest text-gray-400">— Adam Tijerina, TheCreditBlogger.com</footer>
+              </blockquote>
+            </section>
+
             {/* Why this tool */}
             <section className="border-2 border-black p-8">
               <div className="flex items-center gap-3 mb-4">
@@ -222,6 +282,7 @@ export default function About() {
                   ["Industry tenure", "9 years at National Debt Relief"],
                   ["Role", "Consumer Advocate & Marketing Manager"],
                   ["Published", "2 books (2015)"],
+                  ["Blog", "TheCreditBlogger.com"],
                   ["Media", "Credit.com, Yahoo Finance, JenningsWire"],
                   ["Education", "Trinity University"],
                 ].map(([label, value]) => (
@@ -238,6 +299,7 @@ export default function About() {
               <p className="swiss-label mb-4">Featured In</p>
               <div className="space-y-2">
                 {[
+                  "TheCreditBlogger.com (founder)",
                   "Credit.com",
                   "Yahoo Finance",
                   "JenningsWire",
