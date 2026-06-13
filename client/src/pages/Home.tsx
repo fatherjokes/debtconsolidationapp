@@ -22,6 +22,9 @@ export default function Home() {
             <a href="#options" className="hidden md:block text-xs font-semibold tracking-widest uppercase text-gray-600 hover:text-black transition-colors">
               Options
             </a>
+            <Link href="/about">
+              <span className="hidden md:block text-xs font-semibold tracking-widest uppercase text-gray-600 hover:text-black transition-colors cursor-pointer">About</span>
+            </Link>
             <Link href="/assessment">
               <button className="btn-swiss btn-swiss-red text-xs px-4 py-2">
                 Start Free
@@ -282,6 +285,7 @@ export default function Home() {
               <Link href="/"><span className="hover:text-white cursor-pointer transition-colors">Home</span></Link>
               <Link href="/assessment"><span className="hover:text-white cursor-pointer transition-colors">Assessment</span></Link>
               <Link href="/scenarios"><span className="hover:text-white cursor-pointer transition-colors">Scenarios</span></Link>
+              <Link href="/about"><span className="hover:text-white cursor-pointer transition-colors">About</span></Link>
             </div>
           </div>
         </div>

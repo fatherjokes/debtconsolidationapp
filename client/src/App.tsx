@@ -9,6 +9,7 @@ import Assessment from "./pages/Assessment";
 import Results from "./pages/Results";
 import Share from "./pages/Share";
 import Scenarios from "./pages/Scenarios";
+import About from "./pages/About";
 
 // Scenario pages
 import CreditCardDebtGoodCredit from "./pages/scenarios/CreditCardDebtGoodCredit";
@@ -50,6 +51,7 @@ function Router() {
       <Route path="/results/:id" component={Results} />
       <Route path="/share/:token" component={Share} />
       <Route path="/scenarios" component={Scenarios} />
+      <Route path="/about" component={About} />
 
       {/* Individual scenario routes */}
       <Route path="/scenarios/credit-card-debt-good-credit" component={CreditCardDebtGoodCredit} />
