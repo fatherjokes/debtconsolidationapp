@@ -86,6 +86,9 @@ export default function About() {
                   Alongside his role at National Debt Relief, Adam ran <strong>Debt Consolidation USA</strong>, a consumer finance education platform where he published practical, plain-language guides on budgeting, credit card debt, divorce finances, and debt consolidation. His writing was distributed through PRWeb, featured on <strong>Credit.com</strong>, and syndicated across personal finance publications including JenningsWire and Yahoo Finance.
                 </p>
                 <p>
+                  Today, Adam works as an independent <strong>marketing consultant</strong> for debt consolidation and debt relief companies, applying his decade of inside-industry knowledge to help those companies reach and educate consumers more effectively. DebtConsolidationApp.com is the centerpiece of that work — a free assessment tool that connects people with the right type of debt relief provider based on their actual financial profile, generating qualified leads for the companies Adam works with.
+                </p>
+                <p>
                   Adam's philosophy is straightforward: most people searching for a debt consolidation loan don't actually qualify for one — and the industry does a poor job of telling them that upfront. This tool was built to change that. It gives every visitor an honest, AI-powered assessment of all five debt relief paths, ranked by what actually fits their financial profile, not by what earns the highest referral fee.
                 </p>
               </div>
@@ -123,8 +126,14 @@ export default function About() {
                     role: "Strategic Partnerships — Marketplace Lending Conference",
                     description: "Represented National Debt Relief at LendIt USA, the leading marketplace lending conference, developing strategic partnerships with marketplace lenders and building relationships across the fintech and consumer lending ecosystem.",
                   },
+                  {
+                    icon: <Users size={18} />,
+                    title: "Marketing Consultant — Debt Relief Industry",
+                    role: "Current Role",
+                    description: "After leaving National Debt Relief, Adam now works independently as a marketing consultant for debt consolidation and debt relief companies. He leverages his 15+ years of consumer finance expertise and deep industry relationships to help companies reach consumers who genuinely need their services. DebtConsolidationApp.com is his flagship lead generation platform, connecting pre-qualified consumers with the right type of debt relief provider.",
+                  },
                 ].map(({ icon, title, role, description }, i) => (
-                  <div key={i} className={`p-6 ${i < 3 ? "border-b border-black" : ""}`}>
+                  <div key={i} className={`p-6 ${i < 4 ? "border-b border-black" : ""}`}>
                     <div className="flex items-start gap-4">
                       <div className="w-10 h-10 bg-black text-white flex items-center justify-center flex-shrink-0">
                         {icon}
@@ -265,6 +274,12 @@ export default function About() {
               <p className="text-gray-700 leading-relaxed">
                 <strong>No upselling. No hiding options. No pretending everyone qualifies for a consolidation loan.</strong> Just a clear, personalized analysis of what will actually work for your situation.
               </p>
+              <div className="mt-5 pt-5 border-t border-gray-200">
+                <p className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-2">Advertising Disclosure</p>
+                <p className="text-xs text-gray-500 leading-relaxed">
+                  This site is operated by Adam Tijerina as a marketing consultant for debt consolidation and debt relief companies. When you call the number on this site or submit a request, you may be connected with a partner company. This site may receive compensation when consumers are matched with debt relief providers. This does not affect the objectivity of the assessment — all five debt relief paths are evaluated using the same criteria regardless of any referral arrangement.
+                </p>
+              </div>
             </section>
 
           </div>
@@ -280,7 +295,8 @@ export default function About() {
                   ["Based in", "San Antonio, Texas"],
                   ["Experience", "15+ years in personal finance"],
                   ["Industry tenure", "9 years at National Debt Relief"],
-                  ["Role", "Consumer Advocate & Marketing Manager"],
+                  ["Current role", "Marketing Consultant, Debt Relief Industry"],
+                  ["Previous role", "Consumer Advocate & Mktg Mgr, NDR"],
                   ["Published", "2 books (2015)"],
                   ["Blog", "TheCreditBlogger.com"],
                   ["Media", "Credit.com, Yahoo Finance, JenningsWire"],
