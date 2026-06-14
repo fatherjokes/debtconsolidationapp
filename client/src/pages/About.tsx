@@ -43,8 +43,19 @@ export default function About() {
                 DebtConsolidationApp.com was created by Adam Tijerina — a San Antonio-based personal finance expert with over 15 years of experience helping consumers navigate debt relief, credit, and financial recovery.
               </p>
             </div>
-            <div className="lg:col-span-4 lg:pl-16 pt-10 lg:pt-0">
-              <div className="space-y-6">
+            <div className="lg:col-span-4 lg:pl-16 pt-10 lg:pt-0 flex flex-col gap-8">
+              {/* Headshot */}
+              <div className="flex-shrink-0">
+                <img
+                  src="/manus-storage/adam-tijerina_09d8c92c.jpg"
+                  alt="Adam Tijerina — Personal Finance Expert"
+                  className="w-36 h-36 object-cover object-top rounded-none border-2 border-red-600"
+                />
+                <p className="mt-3 font-black text-sm">Adam Tijerina</p>
+                <p className="text-xs text-gray-400 uppercase tracking-widest">Personal Finance Expert</p>
+              </div>
+              {/* Stats */}
+              <div className="space-y-5">
                 {[
                   { stat: "15+", label: "Years in Personal Finance" },
                   { stat: "9", label: "Years at National Debt Relief" },
