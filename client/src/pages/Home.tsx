@@ -1,10 +1,73 @@
 import { Link } from "wouter";
 import { ArrowRight, Shield, Zap, BarChart3, ChevronRight, Phone } from "lucide-react";
 import { SCENARIO_CATEGORIES } from "@/data/scenarios";
-import { Suspense, lazy } from "react";
+import { Suspense, lazy, useState, useEffect } from "react";
 const SortableOptionsView = lazy(() => import("@/components/SortableOptionsView"));
 
+// Deferred scenario grid — only mounts after first paint to reduce initial DOM size
+function ScenarioGrid() {
+  return (
+    <div className="space-y-10">
+      {SCENARIO_CATEGORIES.map((cat) => (
+        <div key={cat.label}>
+          <div className="flex items-center gap-3 mb-4">
+            <span className="w-3 h-px bg-red-600" />
+            <p className="text-xs font-bold uppercase tracking-widest text-gray-400">{cat.label}</p>
+            <span className="flex-1 h-px bg-gray-100" />
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2">
+            {cat.scenarios.map((s) => (
+              <Link key={s.slug} href={`/scenarios/${s.slug}`}>
+                <div className="border border-gray-200 px-3 py-2.5 hover:border-black hover:bg-gray-50 transition-all cursor-pointer group">
+                  <p className="text-xs font-semibold text-gray-700 group-hover:text-red-600 transition-colors leading-snug">
+                    {s.title}
+                  </p>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+// Deferred footer scenario links — only mounts after first paint
+function FooterScenarioLinks() {
+  return (
+    <>
+      {SCENARIO_CATEGORIES.map((cat) => (
+        <div key={cat.label} className="lg:col-span-2">
+          <p className="text-xs font-bold uppercase tracking-widest text-gray-500 mb-3">{cat.label}</p>
+          <ul className="space-y-1.5">
+            {cat.scenarios.map((s) => (
+              <li key={s.slug}>
+                <Link href={`/scenarios/${s.slug}`}>
+                  <span className="text-xs text-gray-400 hover:text-white transition-colors cursor-pointer leading-snug block">
+                    {s.title}
+                  </span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </>
+  );
+}
+
+// Hook: returns true only after the browser has painted the first frame
+function useAfterPaint() {
+  const [ready, setReady] = useState(false);
+  useEffect(() => {
+    const id = requestAnimationFrame(() => setReady(true));
+    return () => cancelAnimationFrame(id);
+  }, []);
+  return ready;
+}
+
 export default function Home() {
+  const afterPaint = useAfterPaint();
   return (
     <div className="min-h-screen bg-white text-black">
       {/* ── Navigation ──────────────────────────────────────────────────── */}
@@ -220,29 +283,8 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Category grid */}
-          <div className="space-y-10">
-            {SCENARIO_CATEGORIES.map((cat) => (
-              <div key={cat.label}>
-                <div className="flex items-center gap-3 mb-4">
-                  <span className="w-3 h-px bg-red-600" />
-                  <p className="text-xs font-bold uppercase tracking-widest text-gray-400">{cat.label}</p>
-                  <span className="flex-1 h-px bg-gray-100" />
-                </div>
-                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2">
-                  {cat.scenarios.map((s) => (
-                    <Link key={s.slug} href={`/scenarios/${s.slug}`}>
-                      <div className="border border-gray-200 px-3 py-2.5 hover:border-black hover:bg-gray-50 transition-all cursor-pointer group">
-                        <p className="text-xs font-semibold text-gray-700 group-hover:text-red-600 transition-colors leading-snug">
-                          {s.title}
-                        </p>
-                      </div>
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
+          {/* Category grid — deferred until after first paint to reduce initial DOM */}
+          {afterPaint ? <ScenarioGrid /> : <div className="h-48" aria-hidden="true" />}
         </div>
       </section>
 
@@ -261,23 +303,8 @@ export default function Home() {
               </p>
             </div>
 
-            {/* Scenario links by category */}
-            {SCENARIO_CATEGORIES.map((cat) => (
-              <div key={cat.label} className="lg:col-span-2">
-                <p className="text-xs font-bold uppercase tracking-widest text-gray-500 mb-3">{cat.label}</p>
-                <ul className="space-y-1.5">
-                  {cat.scenarios.map((s) => (
-                    <li key={s.slug}>
-                      <Link href={`/scenarios/${s.slug}`}>
-                        <span className="text-xs text-gray-400 hover:text-white transition-colors cursor-pointer leading-snug block">
-                          {s.title}
-                        </span>
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+            {/* Footer scenario links — deferred until after first paint */}
+            {afterPaint && <FooterScenarioLinks />}
           </div>
 
           <div className="border-t border-gray-800 mt-10 pt-6 flex flex-col md:flex-row items-center justify-between gap-4">
