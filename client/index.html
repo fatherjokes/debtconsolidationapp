@@ -26,7 +26,7 @@
     <style>
       *,*::before,*::after{box-sizing:border-box}
       html{font-size:16px;-webkit-font-smoothing:antialiased;background:#fff;color:#171717}
-      body{margin:0;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:1rem;line-height:1.6;letter-spacing:-.01em;background:#fff;color:#171717}
+      body{margin:0;font-family:"Inter","Helvetica Neue",Helvetica,Arial,sans-serif;font-size:1rem;line-height:1.6;letter-spacing:-.01em;background:#fff;color:#171717}
       h1{font-weight:900;letter-spacing:-.03em;line-height:1.1;font-size:clamp(2.5rem,6vw,5rem);margin:0 0 1.5rem}
       p{line-height:1.7;margin:0 0 1rem}
       a{color:inherit;text-decoration:none}
@@ -257,14 +257,8 @@
     }
     </script>
 
-    <!-- Google Fonts: Inter — non-blocking load -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
-    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
-    <!-- Preload the font CSS so it is fetched early but does not block render -->
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,400;0,14..32,600;0,14..32,700;0,14..32,900;1,14..32,400&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,400;0,14..32,600;0,14..32,700;0,14..32,900;1,14..32,400&display=swap" /></noscript>
+    <!-- Self-hosted Inter variable font — served from our own CDN, zero external round-trips -->
+    <link rel="preload" href="/manus-storage/inter-latin-wght-normal_41cd5df0.woff2" as="font" type="font/woff2" crossorigin />
   </head>
 
   <body>
