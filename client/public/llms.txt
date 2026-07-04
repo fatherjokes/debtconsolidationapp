@@ -1,0 +1,77 @@
+# DebtConsolidationApp.com
+
+> A free, AI-powered debt relief assessment tool built by Adam Tijerina — a personal finance expert with 15+ years of experience and 9 years at National Debt Relief. The tool analyzes your specific financial profile (debt amount, income, credit score, number of creditors, home purchase timeline, and priorities) and ranks all five debt relief options — consolidation loan, balance transfer, debt management plan, debt settlement, and bankruptcy — by suitability for your situation. No email required. No sales call. Instant results.
+
+Website: https://debtconsolidationapp.com
+Author: Adam Tijerina
+Language: en
+License: All rights reserved
+
+---
+
+## Core Tool
+
+- [Free Debt Assessment](https://debtconsolidationapp.com/assessment): 8-question AI-powered assessment that analyzes your financial profile and ranks all five debt relief options by suitability. Returns a personalized recommendation with suitability scores, credit impact ratings, estimated timelines, pros/cons, and a plain-language explanation for each option.
+
+- [Results Page](https://debtconsolidationapp.com/results): Displays ranked debt relief recommendations with expandable detail cards, a savings calculator comparing minimum payments vs. settlement, an options comparison table, and an AI chat assistant for follow-up questions.
+
+- [Scenarios Library](https://debtconsolidationapp.com/scenarios): 30 real-world debt scenarios showing how the tool recommends different options for different financial profiles — from first-time homebuyers with existing debt to retirees on fixed income to gig workers with irregular income.
+
+---
+
+## Key Pages
+
+- [Home](https://debtconsolidationapp.com/): Landing page explaining how the tool works, the five debt relief options, and who the tool is for.
+
+- [About Adam Tijerina](https://debtconsolidationapp.com/about): Background on the author — 15+ years in personal finance, 9 years at National Debt Relief, personally settled $43,000 in credit card debt.
+
+- [Blog](https://debtconsolidationapp.com/blog): Educational articles on debt relief, written in Adam's voice and grounded in CFPB, Federal Reserve, BLS, and FTC data.
+
+---
+
+## Blog Posts
+
+- [The FTC Just Shut Down a Debt Relief Scam Targeting Seniors — Here's How to Spot a Fake](https://debtconsolidationapp.com/blog/cfpb-ftc-halts-debt-relief-scam-2025): In July 2025, federal regulators halted an illegal debt relief operation that impersonated real businesses and government agencies to steal money from seniors and veterans. Here's what happened and how to protect yourself.
+
+- [Americans Now Owe $1.28 Trillion on Credit Cards. Here's What That Number Means for You.](https://debtconsolidationapp.com/blog/credit-card-debt-1-28-trillion-2026): The Federal Reserve Bank of New York confirmed that U.S. credit card debt hit $1.28 trillion in late 2025 — a record high. The average cardholder with an unpaid balance owes $7,886. Here's what's driving it and what you can actually do about it.
+
+- [You Just Got Laid Off and You Have Debt. Here's Exactly What to Do in the First 72 Hours.](https://debtconsolidationapp.com/blog/laid-off-debt-what-to-do-first-2026): With U.S. unemployment at 4.2% and payroll growth slowing to just 57,000 jobs in June 2026, more Americans are facing the terrifying combination of job loss and debt. Here's the exact playbook for the first 72 hours.
+
+- [How to Negotiate Your Own Debt Settlement (The Complete Guide for 2026)](https://debtconsolidationapp.com/blog/how-to-negotiate-debt-settlement-yourself-2026): "Can I negotiate my own debt settlement?" is one of the most-searched debt questions on Google. The answer is yes — but only under specific circumstances. Here's the complete guide to DIY debt settlement, including the scripts that actually work.
+
+- [Bankruptcy Filings Rose 11% in 2025 — A 10-Year High. Is It the Right Move for You?](https://debtconsolidationapp.com/blog/bankruptcy-filings-rise-11-percent-2025-what-it-means): The U.S. Courts confirmed that non-business bankruptcy filings rose 11.2% in 2025, reaching a 10-year high. Chapter 11 business filings also hit their highest level in a decade. Here's what's driving the surge and how to know if bankruptcy is the right option for your situation.
+
+---
+
+## Scenario Pages
+
+- [Credit Card Debt with Good Credit](https://debtconsolidationapp.com/scenarios/credit-card-debt-good-credit)
+- [Credit Card Debt with Fair Credit](https://debtconsolidationapp.com/scenarios/credit-card-debt-fair-credit)
+- [Medical Debt Crisis](https://debtconsolidationapp.com/scenarios/medical-debt-crisis)
+- [First-Time Homebuyer with Existing Debt](https://debtconsolidationapp.com/scenarios/first-time-homebuyer-with-debt)
+- [Balance Transfer Strategy — Moderate Debt](https://debtconsolidationapp.com/scenarios/balance-transfer-strategy-moderate-debt)
+- [Overwhelmed with Multiple Creditors](https://debtconsolidationapp.com/scenarios/overwhelmed-multiple-creditors)
+- [High Income, High Debt](https://debtconsolidationapp.com/scenarios/high-income-high-debt)
+- [Debt Settlement Candidate](https://debtconsolidationapp.com/scenarios/debt-settlement-candidate)
+- [Bankruptcy as Last Resort](https://debtconsolidationapp.com/scenarios/bankruptcy-last-resort)
+- [Rebuilding Credit After Hardship](https://debtconsolidationapp.com/scenarios/rebuilding-credit-after-hardship)
+- [Student Loan Plus Credit Card Debt](https://debtconsolidationapp.com/scenarios/student-loan-plus-credit-card-debt)
+- [Gig Worker with Irregular Income](https://debtconsolidationapp.com/scenarios/gig-worker-irregular-income)
+- [Recent Divorce — Debt Division](https://debtconsolidationapp.com/scenarios/recent-divorce-debt-division)
+- [Retiree on Fixed Income with Debt](https://debtconsolidationapp.com/scenarios/retiree-fixed-income-debt)
+- [Small Business Owner — Personal Debt](https://debtconsolidationapp.com/scenarios/small-business-owner-personal-debt)
+- [Payday Loan Trap](https://debtconsolidationapp.com/scenarios/payday-loan-trap)
+- [Recent Job Loss — Debt Emergency](https://debtconsolidationapp.com/scenarios/recent-job-loss-debt-emergency)
+- [Young Professional — Early Debt](https://debtconsolidationapp.com/scenarios/young-professional-early-debt)
+- [High Debt-to-Income Ratio](https://debtconsolidationapp.com/scenarios/high-debt-to-income-ratio)
+- [Debt-Free in Two Years](https://debtconsolidationapp.com/scenarios/debt-free-in-two-years)
+- [Denied Consolidation Loan — Settlement Option](https://debtconsolidationapp.com/scenarios/denied-consolidation-loan-settlement-option)
+- [Single Parent — Paycheck to Paycheck](https://debtconsolidationapp.com/scenarios/single-parent-paycheck-to-paycheck-debt)
+- [Minimum Payment Trap — High Interest Debt](https://debtconsolidationapp.com/scenarios/minimum-payment-trap-high-interest-debt)
+- [Two-Income Household Drowning in Debt](https://debtconsolidationapp.com/scenarios/two-income-household-drowning-in-debt)
+- [Credit Card Debt After Medical Emergency](https://debtconsolidationapp.com/scenarios/credit-card-debt-after-medical-emergency)
+- [Maxed-Out Cards, No Savings — Settlement](https://debtconsolidationapp.com/scenarios/maxed-out-cards-no-savings-settlement)
+- [High-Interest Store Cards + Personal Loans](https://debtconsolidationapp.com/scenarios/high-interest-store-cards-personal-loans-settlement)
+- [Layoff + Accumulated Debt — Settlement](https://debtconsolidationapp.com/scenarios/layoff-accumulated-debt-settlement)
+- [Overspending Lifestyle Debt — Settlement](https://debtconsolidationapp.com/scenarios/overspending-lifestyle-debt-settlement)
+- [Self-Employed, Irregular Income, High Debt](https://debtconsolidationapp.com/scenarios/self-employed-irregular-income-high-debt)

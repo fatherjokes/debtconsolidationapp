@@ -1,7 +1,7 @@
-import { eq } from "drizzle-orm";
+import { eq, desc } from "drizzle-orm";
 import { drizzle } from "drizzle-orm/mysql2";
-import { InsertUser, users, assessments, results, sharedLinks } from "../drizzle/schema";
-import type { InsertAssessment, InsertResult, InsertSharedLink } from "../drizzle/schema";
+import { InsertUser, users, assessments, results, sharedLinks, blogPosts } from "../drizzle/schema";
+import type { InsertAssessment, InsertResult, InsertSharedLink, InsertBlogPost } from "../drizzle/schema";
 import { ENV } from "./_core/env";
 
 let _db: ReturnType<typeof drizzle> | null = null;
@@ -96,4 +96,49 @@ export async function getSharedLinkByToken(token: string) {
   if (!db) return undefined;
   const rows = await db.select().from(sharedLinks).where(eq(sharedLinks.token, token)).limit(1);
   return rows[0];
+}
+
+// ─── Blog post helpers ────────────────────────────────────────────────────────────────────────────────
+
+export async function getAllBlogPosts(statusFilter?: "draft" | "published") {
+  const db = await getDb();
+  if (!db) return [];
+  const query = db.select().from(blogPosts).orderBy(desc(blogPosts.publishedAt));
+  if (statusFilter) {
+    return db.select().from(blogPosts).where(eq(blogPosts.status, statusFilter)).orderBy(desc(blogPosts.publishedAt));
+  }
+  return query;
+}
+
+export async function getBlogPostBySlug(slug: string) {
+  const db = await getDb();
+  if (!db) return undefined;
+  const rows = await db.select().from(blogPosts).where(eq(blogPosts.slug, slug)).limit(1);
+  return rows[0];
+}
+
+export async function getBlogPostById(id: number) {
+  const db = await getDb();
+  if (!db) return undefined;
+  const rows = await db.select().from(blogPosts).where(eq(blogPosts.id, id)).limit(1);
+  return rows[0];
+}
+
+export async function createBlogPost(data: InsertBlogPost): Promise<number> {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  const [res] = await db.insert(blogPosts).values(data);
+  return (res as { insertId: number }).insertId;
+}
+
+export async function updateBlogPost(id: number, data: Partial<InsertBlogPost>): Promise<void> {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  await db.update(blogPosts).set(data).where(eq(blogPosts.id, id));
+}
+
+export async function deleteBlogPost(id: number): Promise<void> {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  await db.delete(blogPosts).where(eq(blogPosts.id, id));
 }

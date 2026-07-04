@@ -3,9 +3,9 @@ import { nanoid } from "nanoid";
 import { COOKIE_NAME } from "@shared/const";
 import { getSessionCookieOptions } from "./_core/cookies";
 import { systemRouter } from "./_core/systemRouter";
-import { publicProcedure, router } from "./_core/trpc";
+import { publicProcedure, protectedProcedure, adminProcedure, router } from "./_core/trpc";
 import { invokeLLM } from "./_core/llm";
-import { saveAssessment, saveResult, getResultById, saveSharedLink, getSharedLinkByToken, getAssessmentById } from "./db";
+import { saveAssessment, saveResult, getResultById, saveSharedLink, getSharedLinkByToken, getAssessmentById, getAllBlogPosts, getBlogPostBySlug, getBlogPostById, createBlogPost, updateBlogPost, deleteBlogPost } from "./db";
 import type { RecommendationResult, AssessmentInput } from "../shared/types";
 
 // ─── Zod schemas ──────────────────────────────────────────────────────────────
@@ -218,6 +218,194 @@ export const appRouter = router({
     }),
   }),
 
+  blog: router({
+    // Public: list all published posts
+    list: publicProcedure
+      .input(z.object({ status: z.enum(["draft", "published", "all"]).optional() }).optional())
+      .query(async ({ input }) => {
+        const status = input?.status;
+        if (status === "all") return getAllBlogPosts();
+        return getAllBlogPosts(status ?? "published");
+      }),
+
+    // Public: get one post by slug
+    getBySlug: publicProcedure
+      .input(z.object({ slug: z.string() }))
+      .query(async ({ input }) => {
+        return getBlogPostBySlug(input.slug);
+      }),
+
+    // Admin: get one post by id (for editing)
+    getById: adminProcedure
+      .input(z.object({ id: z.number() }))
+      .query(async ({ input }) => {
+        return getBlogPostById(input.id);
+      }),
+
+    // Admin: create a new blog post
+    create: adminProcedure
+      .input(z.object({
+        title: z.string().min(1),
+        slug: z.string().min(1),
+        excerpt: z.string().min(1),
+        content: z.string().min(1),
+        category: z.string().min(1),
+        categoryColor: z.string().default("bg-red-600"),
+        sourceLabel: z.string().default("Editorial"),
+        author: z.string().default("Adam Tijerina"),
+        readingTime: z.number().int().positive().default(5),
+        status: z.enum(["draft", "published"]).default("draft"),
+        publishedAt: z.string().datetime().optional(),
+      }))
+      .mutation(async ({ input }) => {
+        const id = await createBlogPost({
+          ...input,
+          publishedAt: input.publishedAt ? new Date(input.publishedAt) : (input.status === "published" ? new Date() : undefined),
+        });
+        return { id };
+      }),
+
+    // Admin: update a blog post
+    update: adminProcedure
+      .input(z.object({
+        id: z.number(),
+        title: z.string().min(1).optional(),
+        slug: z.string().min(1).optional(),
+        excerpt: z.string().min(1).optional(),
+        content: z.string().min(1).optional(),
+        category: z.string().min(1).optional(),
+        categoryColor: z.string().optional(),
+        sourceLabel: z.string().optional(),
+        author: z.string().optional(),
+        readingTime: z.number().int().positive().optional(),
+        status: z.enum(["draft", "published"]).optional(),
+        publishedAt: z.string().datetime().optional(),
+      }))
+      .mutation(async ({ input }) => {
+        const { id, publishedAt, ...rest } = input;
+        await updateBlogPost(id, {
+          ...rest,
+          ...(publishedAt ? { publishedAt: new Date(publishedAt) } : {}),
+          ...(rest.status === "published" && !publishedAt ? { publishedAt: new Date() } : {}),
+        });
+        return { success: true };
+      }),
+
+    // Admin: delete a blog post
+    delete: adminProcedure
+      .input(z.object({ id: z.number() }))
+      .mutation(async ({ input }) => {
+        await deleteBlogPost(input.id);
+        return { success: true };
+      }),
+
+    // Admin: AI draft generation — generates a full article in Adam's voice
+    generateDraft: adminProcedure
+      .input(z.object({
+        topic: z.string().min(1),
+        keywords: z.string().optional(),
+        category: z.string().optional(),
+        sourceType: z.enum(["CFPB/FTC", "Federal Reserve", "BLS", "Google Trends", "Breaking News", "Editorial"]).optional(),
+      }))
+      .mutation(async ({ input }) => {
+        const systemPrompt = `You are Adam Tijerina — a personal finance expert with 15+ years of experience, 9 years at National Debt Relief as a consumer advocate, and someone who personally settled $43,000 in credit card debt. You write in a direct, empathetic, no-BS voice. You cite real data sources (CFPB, Federal Reserve, BLS, FTC). You explain complex debt concepts in plain language. You never recommend specific companies. You always include an advertising disclosure when relevant.`;
+
+        const userPrompt = `Write a comprehensive, SEO-optimized blog article for DebtConsolidationApp.com on the following topic:
+
+Topic: ${input.topic}
+${input.keywords ? `Target keywords: ${input.keywords}` : ""}
+${input.category ? `Category: ${input.category}` : ""}
+${input.sourceType ? `Primary source type: ${input.sourceType}` : ""}
+
+Requirements:
+- Write in first person as Adam Tijerina
+- 1,200-1,800 words
+- Include an H1 title, 3-5 H2 sections with H3 subsections where appropriate
+- Open with a compelling hook referencing a real statistic or news event
+- Include actionable advice in each section
+- End with a clear call to action pointing readers to the free debt assessment
+- Use <h2>, <h3>, <p>, <ul>, <li>, <strong>, <em>, <blockquote> HTML tags for formatting
+- Include a brief excerpt (1-2 sentences) at the top as a meta description
+- Suggest a URL slug, reading time estimate, and category
+
+Respond with valid JSON only:
+{
+  "title": "Full article title",
+  "slug": "url-friendly-slug",
+  "excerpt": "1-2 sentence meta description",
+  "category": "Category name",
+  "categoryColor": "bg-red-600 or bg-blue-700 or bg-green-700 or bg-purple-700 or bg-orange-600",
+  "sourceLabel": "Source type label",
+  "readingTime": 7,
+  "content": "<h2>Section 1</h2><p>...</p>..."
+}`;
+
+        const response = await invokeLLM({
+          messages: [
+            { role: "system", content: systemPrompt },
+            { role: "user", content: userPrompt },
+          ],
+          response_format: {
+            type: "json_schema",
+            json_schema: {
+              name: "blog_draft",
+              strict: false,
+              schema: {
+                type: "object",
+                properties: {
+                  title: { type: "string" },
+                  slug: { type: "string" },
+                  excerpt: { type: "string" },
+                  category: { type: "string" },
+                  categoryColor: { type: "string" },
+                  sourceLabel: { type: "string" },
+                  readingTime: { type: "number" },
+                  content: { type: "string" },
+                },
+                required: ["title", "slug", "excerpt", "category", "content"],
+              },
+            },
+          },
+        });
+
+        const raw = response.choices[0]?.message?.content;
+        if (!raw) throw new Error("No response from AI");
+        const text = typeof raw === "string" ? raw : JSON.stringify(raw);
+        try {
+          return JSON.parse(text);
+        } catch {
+          const match = text.match(/\{[\s\S]*\}/);
+          if (!match) throw new Error("Invalid AI response");
+          return JSON.parse(match[0]);
+        }
+      }),
+
+    // Admin: submit a URL to IndexNow (call after publishing)
+    submitToIndexNow: adminProcedure
+      .input(z.object({ url: z.string().url() }))
+      .mutation(async ({ input }) => {
+        const key = process.env.INDEXNOW_KEY;
+        if (!key) return { success: false, error: "INDEXNOW_KEY not configured" };
+        const host = "debtconsolidationapp.com";
+        const keyLocation = `https://${host}/${key}.txt`;
+        try {
+          const res = await fetch("https://api.indexnow.org/indexnow", {
+            method: "POST",
+            headers: { "Content-Type": "application/json; charset=utf-8" },
+            body: JSON.stringify({
+              host,
+              key,
+              keyLocation,
+              urlList: [input.url],
+            }),
+          });
+          return { success: res.ok, status: res.status };
+        } catch (err) {
+          return { success: false, error: String(err) };
+        }
+      }),
+  }),
+
   assessment: router({
     // Analyze assessment and return ranked recommendations
     analyze: publicProcedure
@@ -366,3 +554,4 @@ export const appRouter = router({
 });
 
 export type AppRouter = typeof appRouter;
+

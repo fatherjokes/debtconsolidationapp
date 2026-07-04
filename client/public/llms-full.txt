@@ -1,0 +1,115 @@
+# DebtConsolidationApp.com — Full Content Index
+
+> A free, AI-powered debt relief assessment tool built by Adam Tijerina — a personal finance expert with 15+ years of experience and 9 years at National Debt Relief. The tool analyzes your specific financial profile and ranks all five debt relief options by suitability. No email required. No sales call. Instant results.
+
+Website: https://debtconsolidationapp.com
+Author: Adam Tijerina
+Language: en
+License: All rights reserved
+
+---
+
+# Core Tool
+
+## Free Debt Assessment
+- **URL:** https://debtconsolidationapp.com/assessment
+- **Description:** An 8-question AI-powered assessment that collects: total unsecured debt amount, monthly take-home income, monthly expenses (including minimum payments), credit score range (excellent/good/fair/poor/bad), number of creditors, home purchase timeline (within 1/2/3/5 years or not planning), primary priority (speed/credit preservation/lowest payment), and risk tolerance (conservative/moderate/aggressive). The AI analyzes debt-to-income ratio, disposable income, qualification likelihood for each option, and returns a ranked list of all five debt relief options with suitability scores (0–100), credit impact ratings, estimated timelines, pros/cons, and plain-language explanations tailored to the user's actual numbers.
+
+## Results Page
+- **URL:** https://debtconsolidationapp.com/results/:id
+- **Description:** Displays the AI's ranked recommendations with expandable detail cards for each of the five options. Includes a Debt Savings Calculator comparing minimum payment trajectory vs. debt settlement, an Options Comparison Table with success rates and credit impact for all five methods, and an AI chat assistant (pre-loaded with the user's financial profile) for follow-up questions. Results are shareable via a unique link.
+
+---
+
+# Detailed Content
+
+## Blog Posts
+
+### The FTC Just Shut Down a Debt Relief Scam Targeting Seniors — Here's How to Spot a Fake
+- **URL:** https://debtconsolidationapp.com/blog/cfpb-ftc-halts-debt-relief-scam-2025
+- **Published:** 2025-07-25
+- **Author:** Adam Tijerina
+- **Category:** Consumer Protection
+- **Source:** CFPB / FTC Enforcement
+
+**Summary:** In July 2025, a federal court issued a temporary restraining order halting an illegal debt relief operation that targeted seniors and veterans by impersonating legitimate businesses and government agencies to collect upfront fees. The article explains the five red flags that identify a debt relief scam: (1) asking for money before settling any debt (illegal under FTC's Telemarketing Sales Rule), (2) claiming government affiliation for credit card debt forgiveness, (3) guaranteeing specific settlement percentages, (4) using high-pressure tactics, and (5) refusing to provide written contracts. It explains what legitimate debt settlement looks like (monthly deposits into a dedicated savings account, fees only after settlement, 24–48 month timeline) and how to verify a company via the CFPB complaint database, AFCC membership, and BBB history.
+
+---
+
+### Americans Now Owe $1.28 Trillion on Credit Cards. Here's What That Number Means for You.
+- **URL:** https://debtconsolidationapp.com/blog/credit-card-debt-1-28-trillion-2026
+- **Published:** 2026-02-15
+- **Author:** Adam Tijerina
+- **Category:** Debt Statistics
+- **Source:** Federal Reserve / NY Fed
+
+**Summary:** The Federal Reserve Bank of New York confirmed U.S. credit card debt hit $1.28 trillion in late 2025. The average cardholder carrying an unpaid balance owes $7,886. At a 24% APR (current national average), paying only the minimum results in 339 payments over 28 years and $14,391 in interest — nearly twice the original balance. The article explains the three forces that drove the debt surge (11 Fed rate hikes pushing APR from 16% to 24%, inflation forcing credit card use for everyday expenses, and depletion of pandemic savings buffers), then ranks all five debt relief options by situation: balance transfer cards (good credit, under $15K), consolidation loans (good credit, $10K–$50K), debt management plans (any credit score, struggling with payments), debt settlement (poor credit, $15K+, cannot afford minimums), and bankruptcy (overwhelming debt, no realistic repayment path).
+
+---
+
+### You Just Got Laid Off and You Have Debt. Here's Exactly What to Do in the First 72 Hours.
+- **URL:** https://debtconsolidationapp.com/blog/laid-off-debt-what-to-do-first-2026
+- **Published:** 2026-07-03
+- **Author:** Adam Tijerina
+- **Category:** Job Loss & Debt
+- **Source:** Bureau of Labor Statistics
+
+**Summary:** With U.S. unemployment at 4.2% and June 2026 adding only 57,000 jobs (below the 150,000 needed to keep pace with population growth), the article provides a step-by-step 72-hour playbook for people who just received a layoff notice: Hours 1–4: inventory all debts and calculate monthly runway (liquid savings ÷ monthly expenses). Hours 4–24: file for unemployment immediately (average benefit ~$1,800/month, one-week waiting period in most states). Hours 24–48: triage debts by priority (secured debts with essential collateral → utilities → food → unsecured debts). Hours 48–72: call creditors with a specific hardship script to access undisclosed hardship programs that can reduce APR to 0–9% for 6–12 months. If the math still doesn't work: debt management plan, settlement, or bankruptcy.
+
+---
+
+### How to Negotiate Your Own Debt Settlement (The Complete Guide for 2026)
+- **URL:** https://debtconsolidationapp.com/blog/how-to-negotiate-debt-settlement-yourself-2026
+- **Published:** 2026-06-20
+- **Author:** Adam Tijerina
+- **Category:** Debt Settlement
+- **Source:** Google Trends / Search Demand
+
+**Summary:** Adam Tijerina personally settled $43,000 in credit card debt for $13,000 using DIY settlement, saving approximately $5,000 in professional fees. The article explains when DIY settlement makes sense (1–4 accounts, original creditor or single collector, lump sum available), the mechanics of why creditors settle (collection agencies buy charged-off debt for 3–7 cents on the dollar, so settling for 40 cents is still profitable for them), the three-phase process (stop paying → save in dedicated account → make lump-sum offer at 90–180 days delinquent), the opening offer script that works ("I have [amount] available as a lump-sum settlement"), the critical importance of getting written settlement agreements before paying (specifying account number, settlement amount, full satisfaction language, and credit bureau reporting), and the tax consequence of forgiven debt (1099-C form, IRS Form 982 insolvency exception).
+
+---
+
+### Bankruptcy Filings Rose 11% in 2025 — A 10-Year High. Is It the Right Move for You?
+- **URL:** https://debtconsolidationapp.com/blog/bankruptcy-filings-rise-11-percent-2025-what-it-means
+- **Published:** 2026-02-10
+- **Author:** Adam Tijerina
+- **Category:** Bankruptcy
+- **Source:** U.S. Courts / Recent News
+
+**Summary:** Non-business bankruptcy filings rose 11.2% in 2025 — the largest single-year increase in a decade — driven by the credit card debt crisis ($1.28 trillion at 24% APR), the end of pandemic-era protections (student loan payments resumed, eviction moratoriums ended), and economic slowdown (first month of net job loss since the pandemic in June 2025). The article explains the critical difference between Chapter 7 (liquidation — discharges most unsecured debt in 3–6 months, requires means test, stays on credit 10 years) and Chapter 13 (reorganization — 3–5 year repayment plan, keeps all assets, stays on credit 7 years). The five signs bankruptcy may be the right answer: total unsecured debt exceeds annual income; being sued or facing wage garnishment; other options have been exhausted; credit is already severely damaged; significant medical debt. Non-dischargeable debts: student loans (with very limited exceptions), child support, alimony, most tax debts, fraud-related debts.
+
+---
+
+# About the Author
+
+## Adam Tijerina
+- **URL:** https://debtconsolidationapp.com/about
+- **Background:** 15+ years in personal finance. 9 years at National Debt Relief as a consumer advocate. Personally settled $43,000 in credit card debt using the same methods he now helps others understand. Built DebtConsolidationApp.com to provide the honest, data-driven analysis he wished he'd had when he was in debt.
+- **Expertise:** Debt consolidation loans, balance transfers, debt management plans, debt settlement, bankruptcy, credit score impact, debt-to-income ratios, creditor negotiation, CFPB/FTC consumer protection regulations.
+- **Voice:** Direct, empathetic, no-BS. Cites real data sources. Explains complex concepts in plain language. Never recommends specific companies.
+
+---
+
+# Tool Methodology
+
+## How the AI Assessment Works
+The assessment collects 8 data points and computes: debt-to-income ratio (DTI), disposable income, months to payoff at current pace, total interest cost at current pace, whether the user is living paycheck to paycheck (disposable income < 5% of monthly income), and whether debt would take 10+ years to pay off.
+
+Qualification gates applied before ranking:
+- **Consolidation loan:** Requires good/excellent credit (700+) and DTI under 43%. Fair credit with DTI under 50% is marginal (expect 20–30% APR). Poor/bad credit or DTI ≥ 50% means likely denial.
+- **Balance transfer:** Requires good/excellent credit (700+) and typically under $25,000 in debt.
+- **Debt management plan:** Appropriate for fair/poor credit with stable income and $10K–$50K in debt. NOT appropriate for paycheck-to-paycheck situations (only 25–40% of enrollees complete the full 3–5 year program).
+- **Debt settlement:** Appropriate (and can be top recommendation) when: cannot qualify for consolidation loan, living paycheck to paycheck OR debt takes 10+ years, total debt over $10K, home purchase NOT within 1–2 years. Damages credit 100–200 points for 7 years.
+- **Bankruptcy:** Appropriate when monthly expenses exceed income, wage garnishment is active, or debt is so large that even settlement is not feasible.
+
+## The Five Debt Relief Options Explained
+
+**1. Debt Consolidation Loan:** A personal loan used to pay off multiple high-interest debts, replacing them with a single lower-interest payment. Requires good/excellent credit. Does not reduce principal. Typical APR: 8–20% for qualified borrowers.
+
+**2. Balance Transfer:** Moving credit card debt to a new card with a 0% promotional APR (typically 15–21 months). Requires good/excellent credit. Transfer fee: 3–5%. Best for balances under $15,000–$25,000 that can be paid off during the promotional period.
+
+**3. Debt Management Plan (DMP):** A nonprofit credit counseling agency negotiates reduced interest rates (typically 6–9%) with creditors and consolidates payments. No credit score requirement. Takes 3–5 years. Industry completion rate: only 25–40% (NFCC data).
+
+**4. Debt Settlement:** Negotiating with creditors to accept less than the full balance (typically 40–60 cents on the dollar). Damages credit score 100–200 points. Negative marks stay 7 years. Forgiven debt may be taxable (1099-C). Takes 24–48 months.
+
+**5. Bankruptcy:** Chapter 7 discharges most unsecured debt in 3–6 months (requires means test, stays on credit 10 years). Chapter 13 restructures debt into a 3–5 year repayment plan (stays on credit 7 years). Provides immediate automatic stay stopping all collection actions.

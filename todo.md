@@ -113,3 +113,20 @@
 - [x] Update Home page scenario count from 20 to 30
 - [x] Add "Talk to a Debt Specialist" CTA button to Home page
 - [x] Footer reflects new merged categories
+
+## Admin Blog Drafting Tool, IndexNow & LLMs.txt
+- [x] Add blog_posts table to drizzle/schema.ts (id, title, slug, excerpt, content longtext, category, categoryColor, sourceLabel, author, publishedAt, status draft/published, readingTime, createdAt, updatedAt)
+- [x] Run pnpm drizzle-kit generate and apply migration SQL via webdev_execute_sql
+- [x] Add DB helpers for blog posts in server/db.ts
+- [x] Add tRPC blog router with adminProcedure for create/update/delete and publicProcedure for list/getBySlug
+- [x] Add AI draft procedure: admin-only, takes topic+keywords, calls invokeLLM to generate full article in Adam's voice
+- [x] Add IndexNow submit procedure: admin-only, submits URL to api.indexnow.org on publish
+- [x] Generate IndexNow API key, host {key}.txt in client/public/, add INDEXNOW_KEY to secrets
+- [x] Build /admin/blog page with DashboardLayout: article list, New Article button, draft/published status
+- [x] Build /admin/blog/new and /admin/blog/edit/:id with topic input, Generate Draft button, editor, publish button
+- [ ] Update Blog.tsx to read from DB (tRPC) with fallback to static blogPosts.ts [pending]
+- [ ] Update BlogPost.tsx to read from DB by slug with fallback to static data [pending]
+- [x] Add /admin/blog and /admin/blog/new and /admin/blog/edit/:id routes to App.tsx
+- [x] Create llms.txt in client/public/ with site overview, pages, blog post links
+- [x] Create llms-full.txt in client/public/ with full article summaries
+- [x] Add llms.txt and llms-full.txt links to robots.txt

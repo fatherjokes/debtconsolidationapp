@@ -17,6 +17,8 @@ const Scenarios = lazy(() => import("./pages/Scenarios"));
 const About = lazy(() => import("./pages/About"));
 const Blog = lazy(() => import("./pages/Blog"));
 const BlogPost = lazy(() => import("./pages/BlogPost"));
+const AdminBlog = lazy(() => import("./pages/AdminBlog"));
+const AdminBlogEditor = lazy(() => import("./pages/AdminBlogEditor"));
 
 // Scenario pages — each is a separate chunk, loaded only when visited
 const CreditCardDebtGoodCredit = lazy(() => import("./pages/scenarios/CreditCardDebtGoodCredit"));
@@ -69,6 +71,9 @@ function Router() {
         <Route path="/about" component={About} />
         <Route path="/blog" component={Blog} />
         <Route path="/blog/:slug" component={BlogPost} />
+        <Route path="/admin/blog" component={AdminBlog} />
+        <Route path="/admin/blog/new">{() => <AdminBlogEditor />}</Route>
+        <Route path="/admin/blog/edit/:id">{(params) => <AdminBlogEditor editId={parseInt(params.id)} />}</Route>
 
         {/* Individual scenario routes */}
         <Route path="/scenarios/credit-card-debt-good-credit" component={CreditCardDebtGoodCredit} />

@@ -36,5 +36,13 @@ Allow: /
 User-agent: Bingbot
 Allow: /
 
+# LLM optimization files
+Allow: /llms.txt
+Allow: /llms-full.txt
+
 # Sitemap location
 Sitemap: https://debtconsolidationapp.com/sitemap.xml
+
+# LLMs.txt standard (https://llmstxt.org)
+LLMs: https://debtconsolidationapp.com/llms.txt
+LLMs-full: https://debtconsolidationapp.com/llms-full.txt

@@ -3,6 +3,7 @@ import {
   mysqlEnum,
   mysqlTable,
   text,
+  longtext,
   timestamp,
   varchar,
   json,
@@ -92,3 +93,24 @@ export const sharedLinks = mysqlTable("shared_links", {
 
 export type SharedLink = typeof sharedLinks.$inferSelect;
 export type InsertSharedLink = typeof sharedLinks.$inferInsert;
+
+// Blog posts — AI-drafted articles managed via /admin/blog
+export const blogPosts = mysqlTable("blog_posts", {
+  id: int("id").autoincrement().primaryKey(),
+  title: varchar("title", { length: 512 }).notNull(),
+  slug: varchar("slug", { length: 256 }).notNull().unique(),
+  excerpt: text("excerpt").notNull(),
+  content: longtext("content").notNull(),
+  category: varchar("category", { length: 128 }).notNull(),
+  categoryColor: varchar("categoryColor", { length: 64 }).notNull().default("bg-red-600"),
+  sourceLabel: varchar("sourceLabel", { length: 128 }).notNull().default("Editorial"),
+  author: varchar("author", { length: 128 }).notNull().default("Adam Tijerina"),
+  readingTime: int("readingTime").notNull().default(5),
+  status: mysqlEnum("status", ["draft", "published"]).notNull().default("draft"),
+  publishedAt: timestamp("publishedAt"),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+});
+
+export type BlogPostRow = typeof blogPosts.$inferSelect;
+export type InsertBlogPost = typeof blogPosts.$inferInsert;
