@@ -124,8 +124,8 @@
 - [x] Generate IndexNow API key, host {key}.txt in client/public/, add INDEXNOW_KEY to secrets
 - [x] Build /admin/blog page with DashboardLayout: article list, New Article button, draft/published status
 - [x] Build /admin/blog/new and /admin/blog/edit/:id with topic input, Generate Draft button, editor, publish button
-- [ ] Update Blog.tsx to read from DB (tRPC) with fallback to static blogPosts.ts [pending]
-- [ ] Update BlogPost.tsx to read from DB by slug with fallback to static data [pending]
+- [x] Update Blog.tsx to read from DB (tRPC) with fallback to static blogPosts.ts
+- [x] Update BlogPost.tsx to read from DB by slug with fallback to static data
 - [x] Add /admin/blog and /admin/blog/new and /admin/blog/edit/:id routes to App.tsx
 - [x] Create llms.txt in client/public/ with site overview, pages, blog post links
 - [x] Create llms-full.txt in client/public/ with full article summaries

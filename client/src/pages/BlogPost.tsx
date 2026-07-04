@@ -2,10 +2,37 @@ import { Link, useParams } from "wouter";
 import { useEffect } from "react";
 import { Clock, ArrowLeft, ArrowRight } from "lucide-react";
 import { getBlogPost, BLOG_POSTS } from "@/data/blogPosts";
+import { trpc } from "@/lib/trpc";
 
 export default function BlogPost() {
   const { slug } = useParams<{ slug: string }>();
-  const post = getBlogPost(slug);
+
+  // Try DB first; fall back to static data
+  const { data: dbPost, isLoading: dbLoading } = trpc.blog.getBySlug.useQuery(
+    { slug: slug ?? "" },
+    { enabled: !!slug, retry: false }
+  );
+
+  const staticPost = getBlogPost(slug ?? "");
+
+  // Normalise DB post shape to match static post interface
+  const post = dbPost
+    ? {
+        slug: dbPost.slug,
+        title: dbPost.title,
+        excerpt: dbPost.excerpt,
+        category: dbPost.category,
+        categoryColor: dbPost.categoryColor,
+        source: dbPost.sourceLabel,
+        sourceLabel: dbPost.sourceLabel,
+        publishedAt: dbPost.publishedAt
+          ? new Date(dbPost.publishedAt).toISOString().split("T")[0]
+          : new Date(dbPost.createdAt).toISOString().split("T")[0],
+        readingTime: dbPost.readingTime,
+        author: dbPost.author,
+        content: dbPost.content,
+      }
+    : staticPost;
 
   // Inject JSON-LD structured data for this article
   useEffect(() => {
@@ -73,6 +100,18 @@ export default function BlogPost() {
       if (metaDesc) metaDesc.content = prevDesc;
     };
   }, [post]);
+
+  // Show loading while DB query is in-flight and no static fallback exists
+  if (dbLoading && !staticPost) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-center">
+          <div className="w-8 h-8 border-4 border-red-600 border-t-transparent rounded-full animate-spin mx-auto mb-4" />
+          <p className="text-gray-500 font-mono text-sm uppercase tracking-widest">Loading article…</p>
+        </div>
+      </div>
+    );
+  }
 
   if (!post) {
     return (

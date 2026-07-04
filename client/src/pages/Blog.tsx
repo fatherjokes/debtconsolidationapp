@@ -1,10 +1,32 @@
 import { Link } from "wouter";
 import { Clock, ArrowRight, BookOpen } from "lucide-react";
 import { BLOG_POSTS } from "@/data/blogPosts";
+import { trpc } from "@/lib/trpc";
 
 export default function Blog() {
-  const featuredPost = BLOG_POSTS[0];
-  const remainingPosts = BLOG_POSTS.slice(1);
+  // Fetch published DB posts; merge with static posts (DB posts take precedence)
+  const { data: dbPosts } = trpc.blog.list.useQuery({ status: "published" });
+
+  // Merge: DB posts first, then static posts whose slugs aren't already in DB
+  const dbSlugs = new Set((dbPosts ?? []).map((p) => p.slug));
+  const staticFallback = BLOG_POSTS.filter((p) => !dbSlugs.has(p.slug));
+  const allPosts = [
+    ...(dbPosts ?? []).map((p) => ({
+      slug: p.slug,
+      title: p.title,
+      excerpt: p.excerpt,
+      category: p.category,
+      categoryColor: p.categoryColor,
+      sourceLabel: p.sourceLabel,
+      publishedAt: p.publishedAt ? new Date(p.publishedAt).toISOString().split("T")[0] : new Date(p.createdAt).toISOString().split("T")[0],
+      readingTime: p.readingTime,
+      author: p.author,
+    })),
+    ...staticFallback,
+  ];
+
+  const featuredPost = allPosts[0] ?? BLOG_POSTS[0];
+  const remainingPosts = allPosts.slice(1);
 
   return (
     <div className="min-h-screen bg-white">
