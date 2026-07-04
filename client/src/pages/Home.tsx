@@ -247,7 +247,7 @@ export default function Home() {
                   <ChevronRight size={16} />
                 </button>
               </Link>
-              <a href="tel:+18005551234" className="btn-swiss border border-white text-white bg-transparent hover:bg-white hover:text-black transition-colors flex items-center gap-2">
+              <a href="tel:+18004850094" className="btn-swiss border border-white text-white bg-transparent hover:bg-white hover:text-black transition-colors flex items-center gap-2">
                 <Phone size={15} />
                 Talk to a Debt Specialist
               </a>
@@ -276,7 +276,7 @@ export default function Home() {
                   View All 30 Scenarios <ArrowRight size={14} />
                 </button>
               </Link>
-              <a href="tel:+18005551234" className="btn-swiss btn-swiss-red flex items-center gap-2 text-xs">
+              <a href="tel:+18004850094" className="btn-swiss btn-swiss-red flex items-center gap-2 text-xs">
                 <Phone size={13} />
                 Talk to a Debt Specialist
               </a>

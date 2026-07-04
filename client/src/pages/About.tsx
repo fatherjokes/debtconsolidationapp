@@ -347,7 +347,7 @@ export default function About() {
               <p className="font-black text-lg mb-2">Talk to a Specialist</p>
               <p className="text-sm text-gray-400 mb-5">Get a free consultation with a licensed debt specialist who can review your specific situation.</p>
               <a
-                href="tel:+18005551234"
+                href="tel:+18004850094"
                 className="flex items-center justify-center gap-2 bg-red-600 hover:bg-red-700 text-white text-sm font-black uppercase tracking-widest px-5 py-3 transition-colors w-full"
               >
                 <Phone size={14} />

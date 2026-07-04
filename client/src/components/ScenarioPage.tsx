@@ -122,7 +122,7 @@ export default function ScenarioPage({ scenario }: { scenario: ScenarioData }) {
             <p className="text-sm font-semibold">Talk to a licensed debt specialist — free consultation, no obligation.</p>
           </div>
           <a
-            href="tel:+18005551234"
+            href="tel:+18004850094"
             className="flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white text-sm font-black uppercase tracking-widest px-5 py-2.5 transition-colors whitespace-nowrap flex-shrink-0"
           >
             <Phone size={14} />

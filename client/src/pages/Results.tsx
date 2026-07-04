@@ -439,7 +439,7 @@ export default function Results() {
           </Link>
           <div className="flex items-center gap-1.5 sm:gap-2">
             <a
-              href="tel:+18005551234"
+              href="tel:+18004850094"
               className="btn-swiss btn-swiss-red flex items-center gap-1.5 text-xs px-2.5 sm:px-4"
             >
               <Phone size={14} />
@@ -466,7 +466,7 @@ export default function Results() {
             <p className="text-sm font-semibold">Your results are ready — a licensed debt specialist can help you act on them.</p>
           </div>
           <a
-            href="tel:+18005551234"
+            href="tel:+18004850094"
             className="flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white text-sm font-black uppercase tracking-widest px-5 py-2.5 transition-colors whitespace-nowrap flex-shrink-0"
           >
             <Phone size={14} />
@@ -561,7 +561,7 @@ export default function Results() {
                 <p className="text-sm text-gray-400">Get a free consultation with a licensed debt specialist who can review your options and help you take the next step.</p>
               </div>
               <a
-                href="tel:+18005551234"
+                href="tel:+18004850094"
                 className="btn-swiss border border-white text-white bg-transparent hover:bg-white hover:text-black transition-colors flex items-center gap-2 text-sm whitespace-nowrap flex-shrink-0"
               >
                 <Phone size={15} />
