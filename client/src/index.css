@@ -53,7 +53,7 @@
   --radius-xl:  0px;
   --radius:     0px;
 
-  /* Typography */
+  /* Typography — system font stack first so text renders before Inter loads */
   --font-sans: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
   --font-mono: "JetBrains Mono", "Fira Code", monospace;
 

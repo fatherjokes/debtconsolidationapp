@@ -167,6 +167,19 @@ export default defineConfig({
   build: {
     outDir: path.resolve(import.meta.dirname, "dist/public"),
     emptyOutDir: true,
+    cssCodeSplit: true,
+    rollupOptions: {
+      output: {
+        // Split vendor libraries into separate chunks so they can be cached independently
+        manualChunks(id) {
+          if (id.includes("node_modules/framer-motion")) return "framer-motion";
+          if (id.includes("node_modules/react-dom")) return "react-dom";
+          if (id.includes("node_modules/@radix-ui")) return "radix-ui";
+          if (id.includes("node_modules/lucide-react")) return "lucide";
+          if (id.includes("node_modules/@tanstack")) return "tanstack";
+        },
+      },
+    },
   },
   server: {
     host: true,

@@ -1,7 +1,8 @@
 import { Link } from "wouter";
 import { ArrowRight, Shield, Zap, BarChart3, ChevronRight, Phone } from "lucide-react";
 import { SCENARIO_CATEGORIES } from "@/data/scenarios";
-import SortableOptionsView from "@/components/SortableOptionsView";
+import { Suspense, lazy } from "react";
+const SortableOptionsView = lazy(() => import("@/components/SortableOptionsView"));
 
 export default function Home() {
   return (
@@ -154,7 +155,9 @@ export default function Home() {
       {/* ── Options Overview ─────────────────────────────────────────────── */}
       <section id="options" className="border-b border-black">
         <div className="swiss-container">
-          <SortableOptionsView />
+          <Suspense fallback={<div className="py-24" />}>
+            <SortableOptionsView />
+          </Suspense>
         </div>
       </section>
 
