@@ -44,18 +44,15 @@ export default function Blog() {
         </div>
       </div>
 
-      {/* Call Banner */}
+      {/* Assessment Banner */}
       <div className="bg-black border-t border-gray-800 py-4 px-4">
         <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-white text-sm font-medium text-center sm:text-left">
-            <span className="text-red-400 font-bold">Free consultation:</span> Talk to a licensed debt specialist about your situation.
+            <span className="text-red-400 font-bold">Not sure where to start?</span> Take the free 60-second assessment to find your best debt relief option.
           </p>
-          <a
-            href="tel:+18004850094"
-            className="bg-red-600 text-white text-xs font-black tracking-widest uppercase px-5 py-2.5 hover:bg-red-700 transition-colors whitespace-nowrap"
-          >
-            Call 800-485-0094
-          </a>
+          <Link href="/assessment" className="bg-red-600 text-white text-xs font-black tracking-widest uppercase px-5 py-2.5 hover:bg-red-700 transition-colors whitespace-nowrap">
+            Start Free Assessment →
+          </Link>
         </div>
       </div>
 
@@ -179,6 +176,56 @@ export default function Blog() {
           </Link>
         </div>
       </div>
+
+      {/* Footer */}
+      <footer className="border-t border-black bg-black text-white mt-0">
+        <div className="swiss-container py-12">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
+            {/* Brand */}
+            <div className="lg:col-span-3">
+              <div className="flex items-center gap-3 mb-4">
+                <span className="w-3 h-3 bg-red-600 flex-shrink-0" />
+                <span className="font-black text-sm tracking-widest uppercase">DebtConsolidationApp</span>
+              </div>
+              <p className="text-xs text-gray-400 leading-relaxed">
+                AI-powered debt relief recommendations. Educational purposes only — not financial advice.
+              </p>
+            </div>
+            {/* Quick links */}
+            <div className="lg:col-span-3">
+              <p className="text-xs font-bold uppercase tracking-widest text-gray-500 mb-3">Quick Links</p>
+              <ul className="space-y-2">
+                {[
+                  { href: "/", label: "Home" },
+                  { href: "/assessment", label: "Free Assessment" },
+                  { href: "/scenarios", label: "Debt Scenarios" },
+                  { href: "/blog", label: "Blog" },
+                  { href: "/about", label: "About Adam" },
+                ].map((l) => (
+                  <li key={l.href}>
+                    <Link href={l.href}>
+                      <span className="text-xs text-gray-400 hover:text-white transition-colors cursor-pointer">{l.label}</span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          <div className="border-t border-gray-800 mt-10 pt-6 flex flex-col md:flex-row items-center justify-between gap-4">
+            <p className="text-xs text-gray-500">
+              © {new Date().getFullYear()} DebtConsolidationApp.com · Educational content only · Not financial advice
+            </p>
+            <div className="flex items-center gap-6 text-xs text-gray-500">
+              <Link href="/"><span className="hover:text-white cursor-pointer transition-colors">Home</span></Link>
+              <Link href="/assessment"><span className="hover:text-white cursor-pointer transition-colors">Assessment</span></Link>
+              <Link href="/scenarios"><span className="hover:text-white cursor-pointer transition-colors">Scenarios</span></Link>
+              <Link href="/blog"><span className="hover:text-white cursor-pointer transition-colors">Blog</span></Link>
+              <Link href="/about"><span className="hover:text-white cursor-pointer transition-colors">About</span></Link>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
