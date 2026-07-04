@@ -15,6 +15,8 @@ const Results = lazy(() => import("./pages/Results"));
 const Share = lazy(() => import("./pages/Share"));
 const Scenarios = lazy(() => import("./pages/Scenarios"));
 const About = lazy(() => import("./pages/About"));
+const Blog = lazy(() => import("./pages/Blog"));
+const BlogPost = lazy(() => import("./pages/BlogPost"));
 
 // Scenario pages — each is a separate chunk, loaded only when visited
 const CreditCardDebtGoodCredit = lazy(() => import("./pages/scenarios/CreditCardDebtGoodCredit"));
@@ -65,6 +67,8 @@ function Router() {
         <Route path="/share/:token" component={Share} />
         <Route path="/scenarios" component={Scenarios} />
         <Route path="/about" component={About} />
+        <Route path="/blog" component={Blog} />
+        <Route path="/blog/:slug" component={BlogPost} />
 
         {/* Individual scenario routes */}
         <Route path="/scenarios/credit-card-debt-good-credit" component={CreditCardDebtGoodCredit} />
