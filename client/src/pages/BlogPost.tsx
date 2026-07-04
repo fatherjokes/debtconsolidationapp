@@ -184,7 +184,8 @@ export default function BlogPost() {
               <p className="text-gray-600 text-sm mb-4">15+ years in personal finance. 9 years at National Debt Relief. Settled $43,000 of his own debt. He built this tool to help others do the same.</p>
               <Link
                 href="/about"
-                className="bg-black text-white text-xs font-black tracking-widest uppercase px-5 py-2.5 hover:bg-gray-800 transition-colors w-full flex items-center justify-center gap-2"
+                className="bg-black text-white text-xs font-black tracking-widest uppercase px-5 py-2.5 hover:bg-gray-900 transition-colors w-full flex items-center justify-center gap-2"
+                style={{ color: '#ffffff' }}
               >
                 Read His Story →
               </Link>

@@ -304,7 +304,7 @@ export default function ScenarioPage({ scenario }: { scenario: ScenarioData }) {
           {/* Sidebar */}
           <aside className="space-y-6">
             {/* Profile Card */}
-            <div className="border border-black p-5 sticky top-6">
+            <div className="border border-black p-5">
               <p className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4">
                 Financial Profile
               </p>
@@ -321,14 +321,14 @@ export default function ScenarioPage({ scenario }: { scenario: ScenarioData }) {
             </div>
 
             {/* CTA */}
-            <div className="bg-black text-white p-5">
+            <div className="bg-black text-white p-5 sticky top-6">
               <p className="text-xs font-bold uppercase tracking-widest text-red-400 mb-2">
                 Your Situation Is Unique
               </p>
               <p className="text-sm text-gray-300 mb-4 leading-relaxed">
                 Get a personalized recommendation based on your exact financial profile — not a generic scenario.
               </p>
-              <Link href="/">
+              <Link href="/assessment">
                 <button className="w-full bg-red-600 text-white text-xs font-bold uppercase tracking-widest py-3 hover:bg-red-700 transition-colors">
                   Start Free Assessment →
                 </button>
